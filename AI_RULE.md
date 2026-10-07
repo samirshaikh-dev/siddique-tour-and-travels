@@ -45,7 +45,10 @@ Load **every** skill whose domain intersects with your task:
 ## 2. Core Domain & Brand Directives
 
 ### Brand Identity & Mission
-Siddique Tours and Travels is a premier pilgrimage service provider specializing in **Hajj, Umrah, and Ziyarat journeys**. The digital experience must embody:
+Siddique Tours and Travels is a premier pilgrimage service provider specializing in **Hajj, Umrah, and Ziyarat journeys**.
+- **Verified Head Office:** Shop No 8, Seven Jewellers Complex, Amred, Near Sonorous, Vapi East, Gita Nagar, Vapi, Gujarat – 396191.
+- **Official Helpline:** `+91 90165 31369` (WhatsApp: `+919016531369`).
+- **Official Email:** `info@siddiquetours.com`.
 - **Peace of Mind:** Transparent itineraries, verified hotel distances, honest pricing, and clear documentation.
 - **Dignity & Spiritual Respect:** High-reverence imagery and language. Sacred phrases must never be used casually as marketing fluff.
 - **Trust Before Decoration:** Agency license details, office contacts, cancellation terms, and verified inclusions come before decorative flourishes.
@@ -95,10 +98,10 @@ All visual code must conform strictly to [`DESIGN.md`](file:///s:/client-project
 - **Body & UI:** Clean, human-centered sans-serif (`Inter`, `Plus Jakarta Sans`, or `system-ui`).
 - **Sentence Case:** Use sentence case for button labels (`"Request a quote"`, `"View itinerary"`), avoiding aggressive ALL CAPS.
 
-### Imagery & Patterns
-- Authentic, respectful photographs of Mecca, Medina, and holy sites under warm natural light.
+### Imagery & Background Cleanliness
+- **Prohibition on Dot Grids:** Never place radial polka-dot patterns or noisy repetitive textures behind text or in footers. Surfaces must remain solid, clean, and calm.
+- Authentic, respectful photographs of Mecca, Medina, and holy sites under warm natural light (`hero-makkah.jpg`, `madinah-sanctuary.jpg`, `luxury-suite.jpg`, `ziyarat-mountains.jpg`).
 - Always use `next/image` with explicit `alt` text, responsive `sizes`, and proper aspect ratios.
-- Subtle geometric Islamic patterns are permitted only at low opacity (10–15%) on section backgrounds or borders. Never place patterns behind dense text.
 
 ---
 
@@ -106,8 +109,10 @@ All visual code must conform strictly to [`DESIGN.md`](file:///s:/client-project
 
 ### Next.js 16 & React 19 Standards
 - **Breaking Changes Aware:** Follow `node_modules/next/dist/docs/` and [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md).
+- **Prerendering & Dynamic Time Guardrail:** Never call `new Date()` or `Date.now()` directly in statically prerendered Server Components (`cacheComponents: true`). Use a static build-safe constant (e.g., `2026` or `siteConfig.year`) to eliminate Next.js `blocking-prerender-current-time` build failures.
 - **Server Components by Default:** Route files (`src/app/**/page.js` or `page.tsx`) must be Server Components. Render static content on the server for maximum SEO indexability and instantaneous initial load.
 - **Deliberate `"use client"` Boundaries:** Only mark leaves as client components when they require React hooks (`useState`, `useEffect`), event listeners, form interactivity, or interactive drawers.
+- **Grid Layout Stability:** Do not use fragile `grid-cols-12` layouts with uncompiled arbitrary spans that risk collapsing columns. Use reliable `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full` structures. Always ensure `Container` has `w-full`.
 - **Turbopack & Tailwind CSS v4:** Styles are powered by `@tailwindcss/turbopack` and Tailwind v4. Do not introduce legacy `@tailwind` directives that conflict with Tailwind v4 `@import "tailwindcss";`.
 - **Zero Hydration Mismatch:** Never access `window`, `localStorage`, or browser-only APIs outside `useEffect` or client-only dynamic imports.
 
@@ -122,18 +127,17 @@ All visual code must conform strictly to [`DESIGN.md`](file:///s:/client-project
 
 ---
 
-## 5. Conversion, Forms & Contact UX
+## 5. Conversion, Forms & Mobile Floating Dock
 
-### Primary Actions
+### Primary Actions & Floating Concierge Dock
 Every package and high-intent view must offer clear, direct communication channels:
-1. **WhatsApp Direct Inquiry:** Pre-filled message with package name and traveler count.
-2. **Phone Consultation:** Clear click-to-call link with country code.
-3. **Structured Lead Form:** Short, accessible inquiry form:
-   - Name & Phone/WhatsApp (required).
-   - Package Type (Hajj / Umrah / Ziyarat).
-   - Preferred Month & Number of Travelers.
-   - Departure City.
-   - Optional special requests (elderly wheelchair assistance, private transport).
+1. **Mobile Floating Concierge Dock (`StickyContactBar`):**
+   - Pinned 16px above the bottom screen edge (`style={{ bottom: "16px", left: "12px", right: "12px" }}`).
+   - Dark glassmorphic floating pill (`bg-[#0a1b2b]/95 backdrop-blur-xl border border-white/20`).
+   - Dual actions: Call Office (`+91 90165 31369`) and WhatsApp Concierge (`+919016531369`).
+   - Micro-interaction: Tap scaling (`active:scale-[0.96]`).
+2. **Footer Mobile Clearance:** Maintain `pb-36` on mobile footers so floating elements never obscure links or addresses.
+3. **Structured Lead Form:** Short, accessible inquiry form with name, phone, journey, and city.
 
 ### Form Behavior
 - Explicit `<label>` elements for every input; never rely on placeholder text alone.
@@ -147,9 +151,9 @@ Every package and high-intent view must offer clear, direct communication channe
 
 - [ ] **Contrast:** Minimum 4.5:1 for normal text, 3:1 for large headings and icons.
 - [ ] **Focus Rings:** Distinct, visible 2px outline using `--color-focus` on all interactive `:focus-visible` elements.
-- [ ] **Touch Ergonomics:** All touch targets (buttons, links, form inputs) are at least 44×44px with adequate tap clearance.
+- [ ] **Touch Ergonomics:** All touch targets (buttons, links, form inputs) are at least 44×44px (dock actions at least 48px) with adequate tap clearance.
 - [ ] **Mobile Reflow:** Single-column layout on mobile viewports; zero horizontal scrolling (`overflow-x: hidden`).
-- [ ] **Sticky Action Bar:** Floating mobile bar providing immediate access to `"Call Now"` and `"WhatsApp"` on package detail pages.
+- [ ] **Floating Dock Anchor:** Verified bottom positioning 16px above screen edge; never jumps to header.
 - [ ] **Motion Sensitivity:** Respect `@media (prefers-reduced-motion: reduce)` by disabling non-essential transitions and animations.
 
 ---
@@ -160,8 +164,43 @@ Before presenting your work or concluding a task, verify every item:
 
 1. **Skill Verified:** Did you view and follow the guidelines of the corresponding skill in `agents/skills/`?
 2. **Brand Aligned:** Does the page respect the **Emerald Sanctuary** palette and brand principles in `DESIGN.md`?
-3. **No Fabricated Data:** Are all packages, phone numbers, and agency claims accurate or marked as placeholders/inquiry-based?
-4. **Accessible Contrast:** Are all text elements fully legible against their background?
-5. **Mobile-First Test:** Does the layout degrade gracefully and operate smoothly on small screens?
-6. **Next.js 16 Clean:** Did the code avoid deprecated Next.js patterns and build without lint errors (`npm run lint`)?
+3. **No Fabricated Data:** Are all packages, phone numbers, and agency claims accurate (Head Office in Vapi, Gujarat; phone `+91 90165 31369`)?
+4. **Accessible Contrast & Clean Backgrounds:** Are text elements legible against solid surfaces without distracting dot patterns?
+5. **Mobile-First Test:** Does the floating dock sit at the bottom without header overlap?
+6. **Next.js 16 Clean:** Did the code avoid non-deterministic `new Date()` calls during prerender and build cleanly (`npm run build`, `npm run lint`)?
 7. **Contact Pathways Clear:** Can the visitor immediately contact the agency via WhatsApp or phone from anywhere on the page?
+
+---
+
+## 8. Website Redirection Directive: Visual Impact First
+
+Redesign the website to make it visually appealing, modern, and highly attractive.
+
+The primary goal is **NOT** to make the website more informative. Instead, focus on creating a strong visual first impression that immediately captures attention and makes visitors want to explore further.
+
+### Design Priorities
+- Premium, modern, and visually engaging aesthetic
+- Strong visual hierarchy
+- Minimal text and reduced information density
+- High-quality visuals and imagery
+- Clean, spacious layout
+- Compelling hero section
+- Attractive typography and composition
+- Subtle, purposeful animations and interactions
+- Strong use of whitespace
+- Clear but visually prominent CTAs
+- Mobile-first responsive design
+- Consistent visual language throughout the page
+
+### Avoid
+- Large blocks of text
+- Overly technical/informational sections
+- Cluttered layouts
+- Excessive cards or UI elements
+- Generic template-style designs
+- Unnecessary animations or decorative elements
+
+### Guiding Principle
+The website should feel like a **premium brand website** rather than an information-heavy website. Prioritize visual impact, emotion, aesthetics, and conversion over the amount of information displayed.
+
+Do not remove important existing functionality or content unless it is necessary to improve the visual presentation.

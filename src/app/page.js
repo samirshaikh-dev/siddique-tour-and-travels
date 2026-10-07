@@ -6,6 +6,102 @@ import { packages } from "@/data/packages";
 import { siteConfig } from "@/data/site-config";
 import { getWhatsAppUrl } from "@/lib/utils";
 import PackageCard from "@/components/packages/PackageCard";
+import { buildJsonLd, getPageSchemas, getFAQPageSchema, getTouristTripSchema } from "@/lib/seo";
+
+export const metadata = {
+  title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages from India`,
+  description:
+    "Siddique Tours and Travels — Ministry-approved Hajj, Umrah & Ziyarat packages from Gujarat & India. Courtyard Haram hotels, 24/7 muallim support, VIP transfers, and complete visa logistics with transparent pricing.",
+  keywords: [
+    "Siddique Tours and Travels Vapi",
+    "Hajj Packages 2026 from India",
+    "Umrah Packages from Gujarat",
+    "Ministry Approved Hajj Operator",
+    "Courtyard Hotels Near Haram Makkah",
+    "VIP Umrah Package Makkah Madinah",
+    "Ziyarat Tours from Vapi",
+    "Hajj Quota Registration Gujarat",
+    "5 Star Umrah Package India",
+    "Vapi Travel Agency Hajj Umrah",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: Object.fromEntries(
+      siteConfig.languageAlternates.map((l) => [
+        l.hrefLang,
+        `${l.href}/`,
+      ])
+    ),
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: `${siteConfig.name} | Sacred Hajj, Umrah & Ziyarat Journeys from India`,
+    description:
+      "Ministry-approved pilgrimage operator. Verified Haram-courtyard hotels, 24/7 muallims, private VIP transfers, and full visa coordination for Hajj, Umrah & Ziyarat.",
+    siteName: siteConfig.name,
+    locale: "en_IN",
+    alternateLocale: ["en_US", "ar_SA"],
+    images: [
+      {
+        url: siteConfig.defaultOGImage,
+        width: 1200,
+        height: 630,
+        alt: "Siddique Tours and Travels — Premium Hajj Umrah Ziyarat Packages",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | Hajj, Umrah & Ziyarat from Vapi, Gujarat`,
+    description:
+      "Trusted pilgrimage operator. Haram-courtyard hotels, muallim support, full visa logistics. Call +91 90165 31369.",
+    creator: "@siddiquetours",
+    site: "@siddiquetours",
+    images: [siteConfig.defaultTwitterImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": 170,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+};
+
+const homeBreadcrumb = [
+  { name: "Home", url: "/" },
+];
+
+const homeFAQs = (siteConfig.faq || []).slice(0, 6);
+
+function HomeJsonLd() {
+  const featuredTrips = packages
+    .filter((p) => p.featured)
+    .slice(0, 3)
+    .map((pkg) => getTouristTripSchema(pkg));
+  const pageSchemas = getPageSchemas({
+    path: "/",
+    title: siteConfig.name,
+    description: metadata.description,
+    keywords: metadata.keywords,
+    breadcrumbItems: homeBreadcrumb,
+    image: siteConfig.defaultOGImage,
+  });
+  const faq = getFAQPageSchema(homeFAQs);
+  const jsonLd = buildJsonLd(...pageSchemas, faq, ...featuredTrips);
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: jsonLd }}
+    />
+  );
+}
 
 export default function HomePage() {
   const whatsappUrl = getWhatsAppUrl(
@@ -17,15 +113,21 @@ export default function HomePage() {
 
   return (
     <div className="bg-[var(--color-background)] overflow-hidden">
+      <HomeJsonLd />
+
       {/* =========================================================================
           1. CINEMATIC LUXURY HERO SECTION
           ========================================================================= */}
-      <section className="relative min-h-[92vh] flex items-center justify-center text-white overflow-hidden">
+      <section
+        id="hero"
+        aria-label="Sacred pilgrimage introduction"
+        className="relative min-h-[92vh] flex items-center justify-center text-white overflow-hidden"
+      >
         {/* Full-bleed high-res background photography */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero-makkah.jpg"
-            alt="The Holy Kaaba at dawn - Siddique Tours and Travels"
+            alt="The Holy Kaaba at dawn - Sacred Makkah Haram courtyard view for pilgrimage packages by Siddique Tours and Travels"
             fill
             priority
             className="object-cover object-center scale-105 animate-in fade-in zoom-in-95 duration-1000"
@@ -78,10 +180,11 @@ export default function HomePage() {
           </div>
 
           {/* Floating Luxury Trip Planner Bar */}
-          <div className="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/25 rounded-2xl p-4 sm:p-5 shadow-2xl">
+          <nav aria-label="Pilgrimage categories" className="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/25 rounded-2xl p-4 sm:p-5 shadow-2xl">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
               <Link
                 href="/umrah"
+                aria-label="Browse Umrah packages year-round"
                 className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
               >
                 <div>
@@ -99,6 +202,7 @@ export default function HomePage() {
 
               <Link
                 href="/hajj"
+                aria-label="Hajj registration and 5th pillar guidance"
                 className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
               >
                 <div>
@@ -116,6 +220,7 @@ export default function HomePage() {
 
               <Link
                 href="/ziyarat"
+                aria-label="Sacred Ziyarat heritage tours in Hejaz"
                 className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
               >
                 <div>
@@ -131,14 +236,14 @@ export default function HomePage() {
                 </span>
               </Link>
             </div>
-          </div>
+          </nav>
         </Container>
       </section>
 
       {/* =========================================================================
           2. MINIMALIST REASSURANCE BAR (Subtle Credibility Strip)
           ========================================================================= */}
-      <div className="bg-[var(--color-surface)] border-b border-[var(--color-sage)]/50 py-6">
+      <div aria-label="Trust signals and guarantees" className="bg-[var(--color-surface)] border-b border-[var(--color-sage)]/50 py-6">
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div className="space-y-1">
@@ -172,7 +277,7 @@ export default function HomePage() {
       {/* =========================================================================
           3. THE THREE SACRED JOURNEYS (EDITORIAL VISUAL PORTALS)
           ========================================================================= */}
-      <section id="journeys" className="py-24 sm:py-32">
+      <section id="journeys" aria-label="Curated pilgrimage collections" className="py-24 sm:py-32">
         <Container>
           {/* Spacious Section Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -182,6 +287,9 @@ export default function HomePage() {
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-[var(--color-primary)] tracking-tight">
               Curated Pilgrimage Collections
             </h2>
+            <p className="text-sm sm:text-base text-[var(--color-text-muted)] mt-6 font-light leading-relaxed">
+              Three distinct, carefully architected journeys — each built around your spiritual goals, budget, and family requirements.
+            </p>
             <div className="w-16 h-0.5 bg-[var(--color-accent)] mx-auto mt-5 rounded-full" />
           </div>
 
@@ -190,14 +298,16 @@ export default function HomePage() {
             {/* Card 1: Umrah */}
             <Link
               href="/umrah"
+              aria-label="Explore Umrah packages with Haram-facing hotels in Makkah and Madinah"
               className="group relative h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-8"
             >
               <Image
                 src="/images/madinah-sanctuary.jpg"
-                alt="Madinah sanctuary at sunset"
+                alt="Masjid an-Nabawi Madinah sanctuary at sunset — Umrah packages by Siddique Tours"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 transition-colors" />
 
@@ -225,14 +335,16 @@ export default function HomePage() {
             {/* Card 2: Hajj */}
             <Link
               href="/hajj"
+              aria-label="Shariat-guided Hajj packages with ministry quota coordination"
               className="group relative h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-8"
             >
               <Image
                 src="/images/hero-makkah.jpg"
-                alt="Holy Kaaba courtyard Makkah"
+                alt="Holy Kaaba courtyard Makkah during Hajj season — Siddique Tours Hajj packages"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 transition-colors" />
 
@@ -260,14 +372,16 @@ export default function HomePage() {
             {/* Card 3: Ziyarat */}
             <Link
               href="/ziyarat"
+              aria-label="Historical Ziyarat tours of sacred sites in Makkah and Madinah"
               className="group relative h-[480px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-8"
             >
               <Image
                 src="/images/ziyarat-mountains.jpg"
-                alt="Hejaz mountains of Mecca and Medina"
+                alt="Hejaz mountains — Cave Hira, Mount Uhud and other Ziyarat heritage sites tour"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 transition-colors" />
 
@@ -298,7 +412,7 @@ export default function HomePage() {
       {/* =========================================================================
           4. THE COURTYARD SANCTUARY EXPERIENCE (ASYMMETRICAL LUXURY SPOTLIGHT)
           ========================================================================= */}
-      <section className="py-24 bg-[var(--color-surface)] border-y border-[var(--color-sage)]/60">
+      <section aria-label="Why choose Siddique Tours pilgrimage experience" className="py-24 bg-[var(--color-surface)] border-y border-[var(--color-sage)]/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Visual: Floor-to-ceiling Kaaba suite view */}
@@ -306,10 +420,11 @@ export default function HomePage() {
               <div className="relative h-[380px] sm:h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/luxury-suite.jpg"
-                  alt="Luxury hotel room overlooking the Holy Kaaba"
+                  alt="Luxury 5-star hotel suite overlooking the Holy Kaaba courtyard — premium Umrah package feature"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 60vw"
+                  loading="lazy"
                 />
               </div>
 
@@ -396,7 +511,7 @@ export default function HomePage() {
       {/* =========================================================================
           5. FEATURED SIGNATURE PACKAGES (Spacious, Clean Catalog)
           ========================================================================= */}
-      <section className="py-24 sm:py-32">
+      <section aria-label="Featured pilgrimage packages" className="py-24 sm:py-32">
         <Container>
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
             <div>
@@ -406,9 +521,13 @@ export default function HomePage() {
               <h2 className="font-display text-3xl sm:text-5xl font-bold text-[var(--color-primary)] tracking-tight">
                 Featured Packages
               </h2>
+              <p className="text-sm text-[var(--color-text-muted)] mt-4 max-w-lg font-light">
+                Handpicked favourites from our catalog — selected for balanced comfort, spiritual priority, and transparent value.
+              </p>
             </div>
             <Link
               href="/umrah"
+              aria-label={`View full pilgrimage catalog of ${packages.length} packages`}
               className="text-xs sm:text-sm font-semibold tracking-wider uppercase text-[var(--color-primary)] hover:text-[var(--color-accent)] transition-colors flex items-center gap-1.5"
             >
               View Full Catalog ({packages.length} Packages) →
@@ -426,7 +545,7 @@ export default function HomePage() {
       {/* =========================================================================
           6. EDITORIAL TESTIMONIAL / TRANQUILITY QUOTE
           ========================================================================= */}
-      <section className="py-20 bg-[var(--color-primary)] text-white text-center relative overflow-hidden">
+      <section aria-label="Pilgrim testimonial" className="py-20 bg-[var(--color-primary)] text-white text-center relative overflow-hidden">
         {/* Subtle geometric pattern */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d8bc78_1px,transparent_1px)] [background-size:24px_24px]" />
 
@@ -439,7 +558,7 @@ export default function HomePage() {
           </blockquote>
           <div className="w-12 h-0.5 bg-[var(--color-accent-soft)] mx-auto mb-4" />
           <cite className="not-italic text-sm font-medium tracking-wide text-emerald-100 uppercase block">
-            Dr. Tariq Khan & Family • Mumbai
+            Dr. Tariq Khan & Family • Vapi, Gujarat
           </cite>
         </Container>
       </section>
@@ -447,7 +566,7 @@ export default function HomePage() {
       {/* =========================================================================
           7. MINIMALIST BESPOKE CONCIERGE BANNER (Final High-Conversion CTA)
           ========================================================================= */}
-      <section className="py-24 bg-[var(--color-background)]">
+      <section aria-label="Begin your pilgrimage journey contact" className="py-24 bg-[var(--color-background)]">
         <Container>
           <div className="relative rounded-3xl bg-gradient-to-br from-[var(--color-secondary-dark)] to-[var(--color-primary)] text-white p-10 sm:p-16 lg:p-20 shadow-2xl overflow-hidden flex flex-col items-center text-center">
             {/* Ambient golden glow */}

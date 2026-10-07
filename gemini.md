@@ -147,12 +147,16 @@ All generated or modified UI must conform strictly to [`DESIGN.md`](file:///s:/c
 - **15% Sage & Sand:** Borders, dividers, subtle badges.
 - **5% Muted Gold:** Small icons, dividers, badges **only** (never long text or buttons backgrounds).
 
----
-
 ## 7. Non-Negotiable Directives for Gemini
 
 1. **Strict Skills Routing:** Always inspect the applicable skill in `agents/skills/` before providing implementation advice or editing code.
-2. **Zero Hallucination Policy:** Never fabricate prices, airline names, or hotel distances. Use "Request pricing" or "Inquire on WhatsApp" when unconfirmed.
-3. **Spiritual Reverence:** Maintain dignified, respectful language. Do not use sacred Quranic terms as clickbait or marketing decoration.
-4. **Accessible by Default:** Ensure WCAG AA compliance (contrast ≥ 4.5:1, touch targets ≥ 44px, visible focus outlines, and mobile-first single column layouts).
-5. **Clean Architecture:** Keep components composable, data isolated in `src/data/`, and pages lean Server Components.
+2. **Verified Head Office & Contacts:**
+   - Head Office: *Shop No 8, Seven Jewellers Complex, Amred, Near Sonorous, Vapi East, Gita Nagar, Vapi, Gujarat – 396191*.
+   - Helpline: `+91 90165 31369` (WhatsApp: `+919016531369`).
+3. **Zero Hallucination Policy:** Never fabricate prices, airline names, or hotel distances. Use "Request pricing" or "Inquire on WhatsApp" when unconfirmed.
+4. **Clean Surfaces (No Dot Grids):** Never place radial polka-dot patterns or noisy textures across content and footers. Maintain calm, solid, and high-contrast surfaces.
+5. **Mobile Floating Concierge Dock:** Always position `StickyContactBar` 16px above the bottom edge (`bottom: 16px; left: 12px; right: 12px; max-width: 440px`). Never allow fixed action bars to jump to the top header. Maintain `pb-36` on mobile footers.
+6. **Next.js 16 Cache Prerender Safety:** Never invoke non-deterministic `new Date()` or `Date.now()` inside statically prerendered Server Components (`cacheComponents: true`). Use static constants (e.g., `2026`).
+7. **Grid Architecture Stability:** Avoid fragile `grid-cols-12` layouts with uncompiled spans. Use robust `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full` structures with `w-full` on `Container`.
+8. **Spiritual Reverence:** Maintain dignified, respectful language. Do not use sacred Quranic terms as clickbait or marketing decoration.
+

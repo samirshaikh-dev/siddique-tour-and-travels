@@ -297,13 +297,16 @@ backdrop-filter: blur(16px);
 border: 1px solid rgba(200, 155, 60, 0.35);
 ```
 
-### Islamic patterns
+### Backgrounds & Islamic patterns
 
-- Use subtle geometric patterns at low opacity.
-- Use patterns in hero overlays, section dividers, or footer backgrounds.
-- Do not place patterns behind dense text.
+- **Strict Prohibition on Noisy Grids:** Do not use polka-dot radial patterns, checkered dot grids, or high-contrast repetitive textures behind content or footers. They cause severe visual clutter and compromise readability.
+- Prefer solid, clean, and serene surfaces:
+  - Main background: Warm Ivory (`#FAF7F0`)
+  - Cards & forms: Pure White (`#FFFFFF`)
+  - Hero, headers & footers: Deep Midnight Navy (`#0c1e30` / `#102A43`) or Deep Emerald (`#064A43`)
+- Geometric motifs must be ultra-subtle (opacity <= 3–5%), limited to section dividers or ambient hero light, and never placed directly behind body text or addresses.
 - Do not repeat mosque silhouettes in every section.
-- Do not use sacred text as casual decoration.
+- Do not use sacred Quranic verses as casual decoration.
 
 ## Imagery
 
@@ -325,15 +328,34 @@ Avoid:
 
 ## Responsive behavior
 
-### Mobile-first requirements
-
-- Use a single-column layout by default.
-- Keep primary actions visible without excessive scrolling.
-- Provide sticky Call, WhatsApp, and Quote actions where appropriate.
-- Use touch targets of at least approximately 44px.
-- Never place two long buttons side by side on narrow screens.
+### Mobile-first requirements & Floating Dock
+- Use a single-column layout by default on mobile.
+- **Floating Island Concierge Dock (`StickyContactBar`):**
+  - Must float 16px above the bottom screen edge (`bottom: 16px; left: 12px; right: 12px; max-width: 440px;`).
+  - Never anchor harsh opaque white rectangles to the screen edge.
+  - Dark glassmorphic container: `bg-[#0a1b2b]/95 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.55)]`.
+  - Ergonomic dual actions (minimum 48px touch targets):
+    1. **Call Office:** With helpline icon and direct number.
+    2. **WhatsApp:** Vibrant `#25D366` green gradient with chat icon and "Instant Quotes" label.
+  - Micro-interactions: Tap-scaling feedback (`active:scale-[0.96] transition-all`).
+- **Footer Clearance:** All mobile views must maintain `pb-36` on the footer container so the floating dock never obscures addresses, links, or copyright text.
+- Never place long unstructured buttons side by side without proper text wrapping.
 - Keep package comparison content scannable.
 - Compress decorative elements before reducing readable text size.
+
+### Footer Architecture
+- Use a robust 4-column layout (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full`) inside a `w-full` container to prevent column squishing.
+- Include a top accreditation & trust banner (*Haj & Umrah Authorized Organiser • Vapi, Gujarat*).
+- Brand column with live WhatsApp Consultation Desk status indicator.
+- Dedicated Head Office card with verified Vapi address, click-to-call phone (`+91 90165 31369`), and office hours.
+- Strict prohibition of radial polka dots or noise patterns across footer backgrounds.
+
+### Photographic Assets
+All visual cards must utilize high-resolution authentic photography:
+- `public/images/hero-makkah.jpg`: Holy Kaaba at dawn with golden illumination.
+- `public/images/madinah-sanctuary.jpg`: Al-Masjid an-Nabawi at twilight sunset.
+- `public/images/luxury-suite.jpg`: 5-star hotel suite overlooking the Kaaba courtyard.
+- `public/images/ziyarat-mountains.jpg`: Atmospheric sacred mountains of Mecca and Medina.
 
 ### Breakpoint guidance
 
