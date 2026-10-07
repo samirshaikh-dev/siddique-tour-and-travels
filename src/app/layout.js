@@ -60,19 +60,11 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: ["/favicon.ico"],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#0b3d2e",
-      },
-    ],
+    shortcut: ["/favicon.svg"],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml" }],
   },
   manifest: "/manifest.webmanifest",
   verification: {

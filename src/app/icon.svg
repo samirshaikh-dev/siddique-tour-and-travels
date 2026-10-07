@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="siddiqueBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08524B" />
+      <stop offset="50%" stop-color="#064A43" />
+      <stop offset="100%" stop-color="#032D29" />
+    </linearGradient>
+    <linearGradient id="siddiqueGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2D1" />
+      <stop offset="35%" stop-color="#E8CA82" />
+      <stop offset="70%" stop-color="#B8872D" />
+      <stop offset="100%" stop-color="#8F6218" />
+    </linearGradient>
+    <linearGradient id="siddiqueGoldLight" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B8872D" />
+      <stop offset="100%" stop-color="#FFF3D6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect width="64" height="64" rx="16" fill="url(#siddiqueBg)" />
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#siddiqueGold)" stroke-width="1.5" stroke-opacity="0.8" />
+
+  <!-- Sacred Pilgrimage Motif: Crescent Moon embracing the Holy Kaaba & Star -->
+  <!-- Crescent Moon -->
+  <path
+    d="M34.5 13C25.4 14.5 18.5 22.4 18.5 32C18.5 41.6 25.4 49.5 34.5 51C28.2 47.8 24 40.5 24 32C24 23.5 28.2 16.2 34.5 13Z"
+    fill="url(#siddiqueGold)"
+  />
+
+  <!-- Holy Kaaba Sanctuary Cube -->
+  <!-- Left face -->
+  <path
+    d="M31 30.5L38 27V42.5L31 46V30.5Z"
+    fill="url(#siddiqueGold)"
+  />
+  <!-- Right face -->
+  <path
+    d="M38 27L46 31V45.5L38 42.5V27Z"
+    fill="url(#siddiqueGoldLight)"
+    fill-opacity="0.9"
+  />
+  <!-- Top roof -->
+  <path
+    d="M38 23L46 27L38 30.5L30 26.5L38 23Z"
+    fill="url(#siddiqueGoldLight)"
+  />
+  <!-- Kiswa Gold Band -->
+  <path
+    d="M31 33.5L38 30L46 34V35.5L38 31.8L31 35.2V33.5Z"
+    fill="#FFF4D4"
+  />
+
+  <!-- Radiant Guidance Star -->
+  <path
+    d="M40 15L41.2 18.2L44.5 19.5L41.2 20.8L40 24L38.8 20.8L35.5 19.5L38.8 18.2L40 15Z"
+    fill="url(#siddiqueGold)"
+  />
+</svg>

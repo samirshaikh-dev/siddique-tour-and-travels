@@ -17,6 +17,12 @@ export default function manifest() {
     prefer_related_applications: false,
     icons: [
       {
+        src: "/favicon.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        purpose: "any maskable",
+      },
+      {
         src: "/favicon.ico",
         sizes: "any",
         type: "image/x-icon",
