@@ -74,8 +74,4 @@ body {
   color: #ffffff;
 }
 
-/* Smooth transitions */
-html {
-  scroll-behavior: smooth;
-}
 

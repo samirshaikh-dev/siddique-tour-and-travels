@@ -4,6 +4,7 @@ import { siteConfig } from "@/data/site-config";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import StickyContactBar from "@/components/layout/StickyContactBar";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import {
   buildJsonLd,
   getGlobalHomepageSchemas,
@@ -218,8 +219,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${jakarta.variable} scroll-smooth`}
-      data-scroll-behavior="smooth"
+      className={`${cormorant.variable} ${jakarta.variable}`}
       prefix="og: https://ogp.me/ns#"
       itemScope
       itemType="https://schema.org/WebSite"
@@ -240,10 +240,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="min-h-screen flex flex-col bg-[var(--color-background)] text-[var(--color-text)]">
-        <Navbar />
-        <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
-        <StickyContactBar />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main id="main-content" className="flex-1">{children}</main>
+          <Footer />
+          <StickyContactBar />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
