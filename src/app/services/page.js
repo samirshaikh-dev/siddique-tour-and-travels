@@ -1,8 +1,9 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { services } from "@/data/services";
 import QuickQuoteForm from "@/components/forms/QuickQuoteForm";
+import PageHero from "@/components/common/PageHero";
+import FaqAccordion from "@/components/common/FAQAccordion";
 import { siteConfig } from "@/data/site-config";
 import { buildJsonLd, getPageSchemas, getServiceSchema, getFAQPageSchema } from "@/lib/seo";
 
@@ -64,25 +65,26 @@ export const metadata = {
   },
 };
 
+const servicesFAQs = [
+  {
+    question: "Can I book individual services instead of a full package?",
+    answer:
+      "Yes. Siddique Tours offers each service independently — whether you need only an Umrah visa, only hotel reservations, standalone Ziyarat tours, airport transport, or a private chauffeur for a portion of your stay. Contact our Vapi office for à la carte service pricing and availability.",
+  },
+  {
+    question: "How fast can you process an Umrah e-visa from India?",
+    answer:
+      "Our fast-track electronic Umrah visa processing typically completes within 5–10 working days from the date of complete document submission (valid passport, photographs, insurance, and sponsorship). Peak and Ramadan seasons may require 10–15 working days — we always recommend submitting well in advance.",
+  },
+  {
+    question: "Do you offer wheelchair and personal assistant services for seniors?",
+    answer:
+      "Absolutely. Senior and disabled pilgrim care is a Siddique Tours speciality. We provide pre-booked Tawaf wheelchairs (manual and electric on request), ground-floor or elevator-adjacent hotel rooms, Mashair volunteer escorts, and — on premium packages — a dedicated personal assistant throughout the journey for families travelling with elderly parents.",
+  },
+];
+
 function ServicesJsonLd() {
   const serviceSchemas = services.map((svc) => getServiceSchema(svc));
-  const servicesFAQs = [
-    {
-      question: "Can I book individual services instead of a full package?",
-      answer:
-        "Yes. Siddique Tours offers each service independently — whether you need only an Umrah visa, only hotel reservations, standalone Ziyarat tours, airport transport, or a private chauffeur for a portion of your stay. Contact our Vapi office for à la carte service pricing and availability.",
-    },
-    {
-      question: "How fast can you process an Umrah e-visa from India?",
-      answer:
-        "Our fast-track electronic Umrah visa processing typically completes within 5–10 working days from the date of complete document submission (valid passport, photographs, insurance, and sponsorship). Peak and Ramadan seasons may require 10–15 working days — we always recommend submitting well in advance.",
-    },
-    {
-      question: "Do you offer wheelchair and personal assistant services for seniors?",
-      answer:
-        "Absolutely. Senior and disabled pilgrim care is a Siddique Tours speciality. We provide pre-booked Tawaf wheelchairs (manual and electric on request), ground-floor or elevator-adjacent hotel rooms, Mashair volunteer escorts, and — on premium packages — a dedicated personal assistant throughout the journey for families travelling with elderly parents.",
-    },
-  ];
   const pageSchemas = getPageSchemas({
     path: "/services",
     title: "Pilgrimage Services",
@@ -105,49 +107,85 @@ function ServicesJsonLd() {
   );
 }
 
+const serviceIcons = {
+  Passport: "🛂",
+  Building: "🏨",
+  Bus: "🚍",
+  Compass: "🧭",
+  Heart: "🤲",
+  Utensils: "🍲",
+};
+
 export default function ServicesPage() {
   return (
     <div className="bg-[var(--color-background)]">
       <ServicesJsonLd />
-      <Breadcrumbs items={[{ name: "Services", url: "/services" }]} />
-      <div className="py-16 sm:py-20">
+
+      {/* Cinematic Hero */}
+      <PageHero
+        badge="End-to-End Care"
+        title="Pilgrimage Services,"
+        titleHighlight="Crafted for Serenity."
+        subtitle="From fast-track e-visas and courtyard hotel reservations to VIP GMC private transfers and elderly wheelchair escorts."
+        imageSrc="/images/luxury-suite.jpg"
+        imageAlt="Luxury courtyard suite and pilgrimage VIP logistics"
+        breadcrumbs={[{ name: "Services", url: "/services" }]}
+      />
+
+      {/* Services Bento Grid */}
+      <section aria-label="Available Pilgrimage Logistics Services" className="py-20 sm:py-28">
         <Container>
-        <SectionHeading
-          badge="Complete Support"
-          title="Our Pilgrimage Services"
-          subtitle="Every logistical necessity handled with excellence, transparency and care — whether as standalone add-ons or fully integrated into your chosen pilgrimage package."
-        />
+          <SectionHeading
+            badge="Comprehensive Capabilities"
+            title="Every Detail Handled with Excellence"
+            subtitle="Available as standalone à la carte bookings or fully coordinated into your bespoke family package."
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((svc) => (
-            <article
-              key={svc.id}
-              className="bg-[var(--color-surface)] p-8 rounded-xl border border-[var(--color-sage)]/70 shadow-sm"
-            >
-              <h3 className="font-display text-2xl font-bold text-[var(--color-primary)] mb-3">
-                {svc.title}
-              </h3>
-              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6">
-                {svc.description}
-              </p>
-              <ul className="space-y-2 text-xs sm:text-sm text-[var(--color-text)] border-t border-[var(--color-sage)]/50 pt-4">
-                {svc.features.map((feat, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent)] font-bold">✓</span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            {services.map((svc) => {
+              const icon = serviceIcons[svc.icon] || "✦";
 
-        {/* Lead Form Banner */}
-        <div className="max-w-xl mx-auto">
-          <QuickQuoteForm />
-        </div>
+              return (
+                <article
+                  key={svc.id}
+                  className="p-7 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/50 transition-all shadow-sm hover:shadow-lg flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 flex items-center justify-center text-2xl mb-5 shadow-xs" aria-hidden="true">
+                      {icon}
+                    </div>
+
+                    <h3 className="font-display text-xl font-bold text-[var(--color-primary)] mb-2">
+                      {svc.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed mb-6">
+                      {svc.description}
+                    </p>
+                  </div>
+
+                  <div className="border-t border-[var(--color-sage)]/40 pt-4 space-y-2">
+                    {svc.features.map((feat, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-[var(--color-text)]">
+                        <span className="text-[var(--color-accent)] font-bold text-xs">✓</span>
+                        <span className="font-light">{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Quick Inquiry Dock */}
+          <div className="max-w-xl mx-auto mb-28">
+            <QuickQuoteForm />
+          </div>
+
+          {/* Interactive FAQ Accordion */}
+          <FaqAccordion items={servicesFAQs} title="Frequently Asked Service Questions" />
         </Container>
-      </div>
+      </section>
     </div>
   );
 }

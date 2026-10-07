@@ -1,8 +1,8 @@
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import { siteConfig } from "@/data/site-config";
 import QuickQuoteForm from "@/components/forms/QuickQuoteForm";
+import PageHero from "@/components/common/PageHero";
 import { buildJsonLd, getPageSchemas } from "@/lib/seo";
 
 export const metadata = {
@@ -79,115 +79,126 @@ function ContactJsonLd() {
 }
 
 export default function ContactPage() {
+  const mapQuery = encodeURIComponent(
+    `${siteConfig.name} ${siteConfig.contact.address.street} ${siteConfig.contact.address.city} ${siteConfig.contact.address.state}`
+  );
+
   return (
     <div className="bg-[var(--color-background)]">
       <ContactJsonLd />
-      <Breadcrumbs items={[{ name: "Contact", url: "/contact" }]} />
-      <div className="py-16 sm:py-20">
+
+      {/* Cinematic Hero */}
+      <PageHero
+        badge="Always At Your Service"
+        title="Connect with Our"
+        titleHighlight="Pilgrimage Concierge."
+        subtitle="Direct telephone support, instant WhatsApp consultations, and personal hospitality at our Vapi head office."
+        imageSrc="/images/luxury-suite.jpg"
+        imageAlt="Contact Siddique Tours pilgrimage concierge in Vapi"
+        breadcrumbs={[{ name: "Contact", url: "/contact" }]}
+      />
+
+      {/* 3-Channel Direct Contact Triad */}
+      <section aria-label="Direct Contact Channels" className="py-14 border-b border-[var(--color-sage)]/50 bg-[var(--color-surface)]">
         <Container>
-        <SectionHeading
-          badge="Direct Communication"
-          title="Contact Our Team"
-          subtitle="We are here to assist with your package inquiries, visa formalities, and customized travel requests from Vapi and across India."
-        />
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
-          {/* Office Details */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[var(--color-surface)] p-8 rounded-xl border border-[var(--color-sage)]/70 shadow-sm space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Channel 1: Phone */}
+            <a
+              href={`tel:${siteConfig.contact.phoneClean || siteConfig.contact.phone}`}
+              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-primary)] transition-all flex flex-col justify-between"
+              aria-label={`Call office at ${siteConfig.contact.phoneDisplay}`}
+            >
               <div>
-                <h3 className="font-display text-2xl font-bold text-[var(--color-primary)]">
-                Head Office
-              </h3>
-              <address className="not-italic text-sm text-[var(--color-text-muted)] mt-2 leading-relaxed">
-                {siteConfig.contact.address.street}<br />
-                {siteConfig.contact.address.city}, {siteConfig.contact.address.state} - {siteConfig.contact.address.pincode}<br />
-                {siteConfig.contact.address.country}
-              </address>
-              <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.name} ${siteConfig.contact.address.street} ${siteConfig.contact.address.city}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="text-xs font-semibold text-[var(--color-accent)] hover:underline mt-2 inline-flex items-center gap-1"
-                >
-                  View on Google Maps →
-                </a>
-              </div>
-
-              <div className="border-t border-[var(--color-sage)]/50 pt-4">
-                <span className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider block">
-                  Office Phone
+                <span className="w-10 h-10 rounded-xl bg-white border border-[var(--color-sage)] flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform" aria-hidden="true">
+                  📞
                 </span>
-                <a
-                  href={`tel:${siteConfig.contact.phoneClean || siteConfig.contact.phone}`}
-                  className="text-base font-bold text-[var(--color-primary)] hover:underline block mt-0.5"
-                >
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-text-muted)] block mb-1">
+                  Official Helpline
+                </span>
+                <h3 className="font-display text-lg font-bold text-[var(--color-primary)] group-hover:text-[var(--color-primary-hover)] transition-colors">
                   {siteConfig.contact.phoneDisplay}
-                </a>
-              </div>
-
-              <div className="border-t border-[var(--color-sage)]/50 pt-4">
-                <span className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider block">
-                  WhatsApp Support
-                </span>
-                <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base font-bold text-[#25D366] hover:underline block mt-0.5"
-                >
-                  Direct WhatsApp Chat
-                </a>
-              </div>
-
-              <div className="border-t border-[var(--color-sage)]/50 pt-4">
-                <span className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider block">
-                  Email
-                </span>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm font-medium text-[var(--color-primary)] hover:underline block mt-0.5"
-                >
-                  {siteConfig.contact.email}
-                </a>
-                <a
-                  href={`mailto:${siteConfig.contact.supportEmail}`}
-                  className="text-xs font-medium text-[var(--color-text-muted)] hover:underline block mt-1"
-                >
-                  {siteConfig.contact.supportEmail} (Support)
-                </a>
-              </div>
-
-              <div className="border-t border-[var(--color-sage)]/50 pt-4">
-                <span className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider block">
-                  Working Hours
-                </span>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                </h3>
+                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light">
                   {siteConfig.contact.openingHours}
                 </p>
-                <p className="text-[10px] text-[var(--color-text-muted)] mt-1">
-                  Sunday: Closed for weekly rest. Emergency WhatsApp available for urgent pilgrimage queries.
-                </p>
               </div>
+              <span className="text-xs font-semibold text-[var(--color-primary)] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Call Direct Now →
+              </span>
+            </a>
 
-              <div className="border-t border-[var(--color-sage)]/50 pt-4">
-                <span className="text-xs font-semibold text-[var(--color-text)] uppercase tracking-wider block">
-                  Languages Spoken
+            {/* Channel 2: WhatsApp */}
+            <a
+              href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[#25D366] transition-all flex flex-col justify-between"
+              aria-label="Direct WhatsApp pilgrimage concierge"
+            >
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform relative" aria-hidden="true">
+                  <span className="animate-ping absolute inset-0 rounded-xl bg-[#25D366] opacity-20" />
+                  💬
+                </div>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#25D366] block mb-1">
+                  WhatsApp Concierge
                 </span>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
-                  English • Hindi • Urdu • Gujarati • Marathi
+                <h3 className="font-display text-lg font-bold text-[var(--color-primary)]">
+                  Instant WhatsApp Chat
+                </h3>
+                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light">
+                  Fast response & custom family quotations
                 </p>
               </div>
-            </div>
-          </div>
+              <span className="text-xs font-semibold text-[#1ebe5d] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Start WhatsApp Chat →
+              </span>
+            </a>
 
-          {/* Form */}
-          <div className="lg:col-span-7">
+            {/* Channel 3: Head Office */}
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-accent)] transition-all flex flex-col justify-between"
+              aria-label="View Vapi head office directions on Google Maps"
+            >
+              <div>
+                <span className="w-10 h-10 rounded-xl bg-white border border-[var(--color-sage)] flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform" aria-hidden="true">
+                  📍
+                </span>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-accent)] block mb-1">
+                  Head Office • Vapi
+                </span>
+                <h3 className="font-display text-base font-bold text-[var(--color-primary)]">
+                  {siteConfig.contact.address.city}, Gujarat
+                </h3>
+                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light leading-relaxed">
+                  {siteConfig.contact.address.street}
+                </p>
+              </div>
+              <span className="text-xs font-semibold text-[var(--color-accent)] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Google Maps Navigation →
+              </span>
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      {/* Main Consultation Form Section */}
+      <section aria-label="Send Written Inquiry" className="py-20 sm:py-28">
+        <Container className="max-w-4xl">
+          <SectionHeading
+            badge="Personalized Attention"
+            title="Request a Custom Consultation"
+            subtitle="Share your preferred departure dates, group size, and hotel preferences. Our senior team will reach out with a transparent, itemized itinerary."
+          />
+
+          <div className="max-w-xl mx-auto">
             <QuickQuoteForm />
           </div>
-        </div>
         </Container>
-      </div>
+      </section>
     </div>
   );
 }
