@@ -140,16 +140,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile menu trigger */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <Button
-            href={whatsappUrl}
-            variant="whatsapp"
-            size="sm"
-            className="text-xs py-1.5 px-3 min-h-[36px]"
-            aria-label="WhatsApp pilgrimage desk"
-          >
-            WhatsApp
-          </Button>
+        <div className="flex items-center lg:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
