@@ -28,7 +28,7 @@ export const metadata = {
     ),
   },
   openGraph: {
-    type: "profile",
+    type: "website",
     url: `${siteConfig.url}/about`,
     title: `About ${siteConfig.name} | Our Sacred Pilgrimage Ministry Credentials & Story`,
     description:

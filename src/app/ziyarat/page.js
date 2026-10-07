@@ -32,7 +32,7 @@ export const metadata = {
     ),
   },
   openGraph: {
-    type: "product.group",
+    type: "website",
     url: `${siteConfig.url}/ziyarat`,
     title: "Ziyarat Tours | Cave Hira, Mount Uhud & Sacred Islamic Heritage Sites",
     description:

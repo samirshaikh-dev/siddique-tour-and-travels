@@ -227,6 +227,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${cormorant.variable} ${jakarta.variable} scroll-smooth`}
+      data-scroll-behavior="smooth"
       prefix="og: https://ogp.me/ns#"
       itemScope
       itemType="https://schema.org/WebSite"

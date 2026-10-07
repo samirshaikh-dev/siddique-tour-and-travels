@@ -50,8 +50,22 @@ export default function PackageCard({ pkg }) {
         </div>
       ) : null}
 
+      {pkg.makkahHotel && (
+        <div itemProp="includesAttraction" itemScope itemType="https://schema.org/TouristAttraction" className="hidden">
+          <meta itemProp="name" content={pkg.makkahHotel.name} />
+          <meta itemProp="description" content={pkg.makkahHotel.distance} />
+        </div>
+      )}
+
+      {pkg.madinahHotel && (
+        <div itemProp="includesAttraction" itemScope itemType="https://schema.org/TouristAttraction" className="hidden">
+          <meta itemProp="name" content={pkg.madinahHotel.name} />
+          <meta itemProp="description" content={pkg.madinahHotel.distance} />
+        </div>
+      )}
+
       {pkg.image && (
-        <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-stone-900">
+        <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-stone-900">
           <Image
             src={pkg.image}
             alt={altText}
@@ -61,11 +75,10 @@ export default function PackageCard({ pkg }) {
             itemProp="image"
             className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            quality={80}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
 
-          <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+          <div className="absolute top-3 left-3 right-3 flex justify-between items-center">
             <Badge
               variant={
                 pkg.category === "Hajj"
@@ -74,24 +87,26 @@ export default function PackageCard({ pkg }) {
                   ? "emerald"
                   : "sage"
               }
-              className="backdrop-blur-md shadow-md text-xs px-3 py-1 font-semibold"
+              className="backdrop-blur-md shadow-md text-xs px-2.5 py-0.5 font-semibold"
             >
               {pkg.category}
             </Badge>
 
-            <span className="text-xs font-semibold text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+            <span className="text-[11px] font-semibold text-white bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
               {pkg.duration}
             </span>
           </div>
 
-          <div className="absolute bottom-4 left-4 right-4 text-white">
-            <span className="text-[11px] font-medium uppercase tracking-wider text-[var(--color-accent-soft)] block mb-0.5">
-              {pkg.season}
-            </span>
+          <div className="absolute bottom-3 left-3 right-3 text-white">
+            {pkg.season && (
+              <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--color-accent-soft)] block mb-0.5">
+                {pkg.season}
+              </span>
+            )}
             <h3
               id={`pkg-${pkg.id}-title`}
               itemProp="name"
-              className="font-display text-xl sm:text-2xl font-bold leading-tight drop-shadow-sm"
+              className="font-display text-lg sm:text-xl font-bold leading-snug drop-shadow-sm line-clamp-2"
             >
               <Link
                 href={`${categoryPath}${slugAnchor}`}
@@ -105,108 +120,36 @@ export default function PackageCard({ pkg }) {
         </div>
       )}
 
-      <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-        <div>
-          <p className="text-xs sm:text-sm text-[var(--color-text-muted)] line-clamp-2 leading-relaxed">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-3">
+        {pkg.tagline && (
+          <p className="text-xs text-[var(--color-text-muted)] line-clamp-2 leading-relaxed">
             {pkg.tagline}
           </p>
+        )}
 
-          <div className="mt-5 space-y-3 text-xs sm:text-sm border-t border-[var(--color-sage)]/50 pt-4">
-            {pkg.makkahHotel && (
-              <div itemProp="includesAttraction" itemScope itemType="https://schema.org/TouristAttraction" className="flex items-start gap-2.5">
-                <span className="text-[var(--color-accent)] font-semibold min-w-[58px]">Makkah:</span>
-                <div className="text-[var(--color-text)]">
-                  <span className="font-medium" itemProp="name">{pkg.makkahHotel.name}</span>
-                  <span className="block text-[11px] text-[var(--color-text-muted)]">
-                    {pkg.makkahHotel.distance}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {pkg.madinahHotel && (
-              <div itemProp="includesAttraction" itemScope itemType="https://schema.org/TouristAttraction" className="flex items-start gap-2.5">
-                <span className="text-[var(--color-accent)] font-semibold min-w-[58px]">Madinah:</span>
-                <div className="text-[var(--color-text)]">
-                  <span className="font-medium" itemProp="name">{pkg.madinahHotel.name}</span>
-                  <span className="block text-[11px] text-[var(--color-text-muted)]">
-                    {pkg.madinahHotel.distance}
-                  </span>
-                </div>
-              </div>
-            )}
-
-            {pkg.departureCities && pkg.departureCities.length > 0 && (
-              <div className="flex items-start gap-2.5">
-                <span className="text-[var(--color-accent)] font-semibold min-w-[58px]">From:</span>
-                <span className="text-[11px] text-[var(--color-text-muted)]">
-                  {pkg.departureCities.join(" • ")}
-                </span>
-              </div>
-            )}
-
-            {pkg.inclusions && pkg.inclusions.length > 0 && (
-              <div itemScope itemProp="itinerary" itemType="https://schema.org/ItemList" className="pt-2 space-y-1.5">
-                <span className="text-[10px] uppercase font-semibold text-[var(--color-primary)] tracking-wider block">
-                  Key Inclusions:
-                </span>
-                <ul className="space-y-1 text-[11px] text-[var(--color-text-muted)] list-disc pl-4">
-                  {pkg.inclusions.slice(0, 4).map((inc, i) => (
-                    <li itemScope itemProp="itemListElement" itemType="https://schema.org/ListItem" key={i}>
-                      <span itemProp="name">{inc}</span>
-                      <meta itemProp="position" content={String(i + 1)} />
-                    </li>
-                  ))}
-                  {pkg.inclusions.length > 4 && (
-                    <li className="text-[var(--color-accent)] font-medium list-none -ml-4">
-                      +{pkg.inclusions.length - 4} more inclusions →
-                    </li>
-                  )}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          {pkg.rating ? (
-            <div itemScope itemProp="aggregateRating" itemType="https://schema.org/AggregateRating" className="mt-4 flex items-center gap-1.5">
-              <meta itemProp="ratingValue" content={String(pkg.rating)} />
-              <meta itemProp="bestRating" content="5" />
-              <meta itemProp="worstRating" content="1" />
-              <meta itemProp="reviewCount" content={pkg.featured ? "50" : "20"} />
-              <div className="flex text-amber-500 text-xs" aria-label={`Rated ${pkg.rating} out of 5`}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span key={i}>{i < Math.round(pkg.rating) ? "★" : "☆"}</span>
-                ))}
-              </div>
-              <span className="text-[11px] font-semibold text-[var(--color-primary)]">{pkg.rating}/5</span>
-              <span className="text-[10px] text-[var(--color-text-muted)]">({pkg.featured ? "50+" : "20+"} pilgrim reviews)</span>
-            </div>
-          ) : null}
-        </div>
-
-        <div className="pt-4 border-t border-[var(--color-sage)]/60">
-          <div className="flex items-baseline justify-between mb-4">
+        <div className="pt-3 border-t border-[var(--color-sage)]/50 space-y-3">
+          <div className="flex items-baseline justify-between gap-2">
             <div>
-              <span className="text-[11px] text-[var(--color-text-muted)] uppercase tracking-wider block">
+              <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider block">
                 Starting from
               </span>
-              <span className="text-2xl font-bold text-[var(--color-primary)] font-display">
+              <span className="text-xl font-bold text-[var(--color-primary)] font-display">
                 {pkg.priceStarting ? formatCurrency(pkg.priceStarting) : "Request Pricing"}
               </span>
             </div>
             {pkg.priceNote && (
-              <span className="text-[11px] text-[var(--color-text-muted)] text-right max-w-[130px]">
+              <span className="text-[10px] text-[var(--color-text-muted)] text-right max-w-[120px] line-clamp-1">
                 {pkg.priceNote}
               </span>
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-2 gap-2">
             <Button
               href={whatsappUrl}
               variant="whatsapp"
               size="sm"
-              className="text-xs py-2 min-h-[42px]"
+              className="text-xs py-2 min-h-[38px] flex items-center justify-center font-medium"
               aria-label={`Inquire about ${pkg.title} on WhatsApp`}
             >
               WhatsApp
@@ -215,7 +158,7 @@ export default function PackageCard({ pkg }) {
               href={`${categoryPath}${slugAnchor || ""}`}
               variant="primary"
               size="sm"
-              className="text-xs py-2 min-h-[42px]"
+              className="text-xs py-2 min-h-[38px] flex items-center justify-center font-medium"
               aria-label={`View full itinerary for ${pkg.title}`}
             >
               View Itinerary

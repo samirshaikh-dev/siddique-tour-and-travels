@@ -33,7 +33,7 @@ export const metadata = {
     ),
   },
   openGraph: {
-    type: "product.group",
+    type: "website",
     url: `${siteConfig.url}/hajj`,
     title: "Hajj 2026 Packages | Shariat Muallim Guidance, Ministry Quota & VIP Mina Tents",
     description:

@@ -32,7 +32,7 @@ export const metadata = {
     ),
   },
   openGraph: {
-    type: "product.group",
+    type: "website",
     url: `${siteConfig.url}/umrah`,
     title: "Umrah Packages 2026 | Haram Courtyard Hotels, Visa & Transport from India",
     description:
