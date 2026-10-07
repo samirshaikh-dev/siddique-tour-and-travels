@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { formatCurrency, getWhatsAppUrl } from "@/lib/utils";
@@ -30,10 +33,11 @@ export default function PackageCard({ pkg }) {
       : "/ziyarat";
 
   return (
-    <article
+    <motion.article
+      whileHover={{ y: -5, transition: { duration: 0.25, ease: "easeOut" } }}
       itemScope
       itemType="https://schema.org/TouristTrip"
-      className="group flex flex-col bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)] transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden"
+      className="group flex flex-col bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)] transition-colors duration-300 shadow-sm hover:shadow-xl overflow-hidden"
       aria-labelledby={`pkg-${pkg.id}-title`}
     >
       <meta itemProp="name" content={pkg.title} />
@@ -166,6 +170,6 @@ export default function PackageCard({ pkg }) {
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

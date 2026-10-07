@@ -6,6 +6,8 @@ import { packages } from "@/data/packages";
 import { siteConfig } from "@/data/site-config";
 import { getWhatsAppUrl } from "@/lib/utils";
 import PackageCard from "@/components/packages/PackageCard";
+import HeroParallax from "@/components/home/HeroParallax";
+import TrustBar from "@/components/home/TrustBar";
 import { buildJsonLd, getPageSchemas, getFAQPageSchema, getTouristTripSchema } from "@/lib/seo";
 
 export const metadata = {
@@ -116,163 +118,14 @@ export default function HomePage() {
       <HomeJsonLd />
 
       {/* =========================================================================
-          1. CINEMATIC LUXURY HERO SECTION
+          1. CINEMATIC LUXURY HERO SECTION (GSAP ScrollTrigger Parallax & Motion)
           ========================================================================= */}
-      <section
-        id="hero"
-        aria-label="Sacred pilgrimage introduction"
-        className="relative min-h-[92vh] flex items-center justify-center text-white overflow-hidden"
-      >
-        {/* Full-bleed high-res background photography */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/hero-makkah.jpg"
-            alt="The Holy Kaaba at dawn - Sacred Makkah Haram courtyard view for pilgrimage packages by Siddique Tours and Travels"
-            fill
-            priority
-            className="object-cover object-center scale-105 animate-in fade-in zoom-in-95 duration-1000"
-            sizes="100vw"
-          />
-          {/* Multi-stage luxury gradient overlay: preserves image while guaranteeing AAA contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)] via-black/40 to-black/60" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/20 to-black/70" />
-        </div>
-
-        <Container className="relative z-10 py-20 sm:py-28 text-center max-w-4xl mx-auto flex flex-col items-center">
-          {/* Subtle gold badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[var(--color-accent-soft)] text-xs font-semibold tracking-widest uppercase mb-8 shadow-lg">
-            <span>✦</span>
-            <span>Bespoke Hajj • Umrah • Ziyarat</span>
-            <span>✦</span>
-          </div>
-
-          {/* Grand Editorial Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6 drop-shadow-md">
-            Your Journey to Faith,{" "}
-            <span className="italic font-normal text-[var(--color-accent-soft)] block sm:inline">
-              Elevated in Serenity.
-            </span>
-          </h1>
-
-          {/* Minimalist, evocative subtitle */}
-          <p className="text-base sm:text-xl text-emerald-50/90 max-w-2xl font-light leading-relaxed mb-10 drop-shadow">
-            Handcrafted pilgrimages featuring verified 5-star courtyard sanctuaries, private chauffeur transfers, and devoted on-ground scholar care.
-          </p>
-
-          {/* Visually Prominent Dual CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16">
-            <Button
-              href="#journeys"
-              variant="gold"
-              size="lg"
-              className="w-full sm:w-auto text-base px-8 py-4 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all font-semibold"
-            >
-              Explore Sacred Packages
-            </Button>
-            <Button
-              href={whatsappUrl}
-              variant="secondary"
-              size="lg"
-              className="w-full sm:w-auto text-base px-8 py-4 bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 hover:scale-[1.02] transition-all font-medium"
-            >
-              Instant WhatsApp Concierge
-            </Button>
-          </div>
-
-          {/* Floating Luxury Trip Planner Bar */}
-          <nav aria-label="Pilgrimage categories" className="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/25 rounded-2xl p-4 sm:p-5 shadow-2xl">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-              <Link
-                href="/umrah"
-                aria-label="Browse Umrah packages year-round"
-                className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
-              >
-                <div>
-                  <span className="text-[10px] uppercase font-semibold text-[var(--color-accent-soft)] block">
-                    Year-Round
-                  </span>
-                  <span className="font-display text-base font-bold group-hover:text-[var(--color-accent-soft)] transition-colors">
-                    Umrah Packages
-                  </span>
-                </div>
-                <span className="text-lg opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                  →
-                </span>
-              </Link>
-
-              <Link
-                href="/hajj"
-                aria-label="Hajj registration and 5th pillar guidance"
-                className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
-              >
-                <div>
-                  <span className="text-[10px] uppercase font-semibold text-[var(--color-accent-soft)] block">
-                    The 5th Pillar
-                  </span>
-                  <span className="font-display text-base font-bold group-hover:text-[var(--color-accent-soft)] transition-colors">
-                    Hajj Registration
-                  </span>
-                </div>
-                <span className="text-lg opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                  →
-                </span>
-              </Link>
-
-              <Link
-                href="/ziyarat"
-                aria-label="Sacred Ziyarat heritage tours in Hejaz"
-                className="group p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white flex items-center justify-between"
-              >
-                <div>
-                  <span className="text-[10px] uppercase font-semibold text-[var(--color-accent-soft)] block">
-                    Historic Hejaz
-                  </span>
-                  <span className="font-display text-base font-bold group-hover:text-[var(--color-accent-soft)] transition-colors">
-                    Sacred Ziyarat
-                  </span>
-                </div>
-                <span className="text-lg opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
-                  →
-                </span>
-              </Link>
-            </div>
-          </nav>
-        </Container>
-      </section>
+      <HeroParallax whatsappUrl={whatsappUrl} />
 
       {/* =========================================================================
-          2. MINIMALIST REASSURANCE BAR (Subtle Credibility Strip)
+          2. MINIMALIST REASSURANCE BAR (Staggered Motion Entrance)
           ========================================================================= */}
-      <div aria-label="Trust signals and guarantees" className="bg-[var(--color-surface)] border-b border-[var(--color-sage)]/50 py-6">
-        <Container>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div className="space-y-1">
-              <span className="font-display text-2xl font-bold text-[var(--color-primary)]">
-                0 Metres
-              </span>
-              <p className="text-xs text-[var(--color-text-muted)]">Courtyard Haram Hotel Access</p>
-            </div>
-            <div className="space-y-1">
-              <span className="font-display text-2xl font-bold text-[var(--color-primary)]">
-                100% Verified
-              </span>
-              <p className="text-xs text-[var(--color-text-muted)]">Transparent Itineraries & Visas</p>
-            </div>
-            <div className="space-y-1">
-              <span className="font-display text-2xl font-bold text-[var(--color-primary)]">
-                24/7 Muallim
-              </span>
-              <p className="text-xs text-[var(--color-text-muted)]">Dedicated On-Ground Scholar Care</p>
-            </div>
-            <div className="space-y-1">
-              <span className="font-display text-2xl font-bold text-[var(--color-primary)]">
-                Direct Flights
-              </span>
-              <p className="text-xs text-[var(--color-text-muted)]">Full-Service Airline Connections</p>
-            </div>
-          </div>
-        </Container>
-      </div>
+      <TrustBar />
 
       {/* =========================================================================
           3. THE THREE SACRED JOURNEYS (EDITORIAL VISUAL PORTALS)
