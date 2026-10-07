@@ -18,6 +18,7 @@ export const packages = [
     season: "Year-Round",
     featured: true,
     rating: 4.9,
+    image: "/images/madinah-sanctuary.jpg",
     makkahHotel: {
       name: "Dar Al Eiman or Similar",
       distance: "Approx. 450m from Haram",
@@ -56,6 +57,7 @@ export const packages = [
     season: "Year-Round",
     featured: true,
     rating: 5.0,
+    image: "/images/luxury-suite.jpg",
     makkahHotel: {
       name: "Swissôtel Al Maqam / Clock Tower",
       distance: "0m (Direct Haram Courtyard Access)",
@@ -92,6 +94,7 @@ export const packages = [
     season: "Hajj Season (Dhul Hijjah)",
     featured: true,
     rating: 5.0,
+    image: "/images/hero-makkah.jpg",
     makkahHotel: {
       name: "Full Service Hotel & Azizia Facility",
       distance: "Dedicated shuttles to Haram until 5th Dhul Hijjah",
@@ -128,6 +131,7 @@ export const packages = [
     season: "Available Monthly",
     featured: false,
     rating: 4.8,
+    image: "/images/ziyarat-mountains.jpg",
     makkahHotel: {
       name: "Standard 3-Star Quality Hotel",
       distance: "Shuttle Service to Haram (5 mins)",
