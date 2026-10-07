@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #064A43;
+  --color-primary-hover: #0B6258;
+  --color-secondary-dark: #102A43;
+  --color-background: #FAF7F0;
+  --color-surface: #FFFFFF;
+  --color-sage: #DCE8E1;
+  --color-sand: #E9DFC8;
+  --color-accent: #B8872D;
+  --color-accent-soft: #D8BC78;
+  --color-text: #17211F;
+  --color-text-muted: #596662;
+  --color-success: #287A58;
+  --color-warning: #9A681C;
+  --color-error: #B84A45;
+  --color-focus: #D8BC78;
+
+  --font-serif: var(--font-display, "Cormorant Garamond", Georgia, serif);
+  --font-sans: var(--font-body, Inter, "Plus Jakarta Sans", system-ui, sans-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --color-primary: #064A43;
+  --color-primary-hover: #0B6258;
+  --color-secondary-dark: #102A43;
+  --color-background: #FAF7F0;
+  --color-surface: #FFFFFF;
+  --color-sage: #DCE8E1;
+  --color-sand: #E9DFC8;
+  --color-accent: #B8872D;
+  --color-accent-soft: #D8BC78;
+  --color-text: #17211F;
+  --color-text-muted: #596662;
+  --color-success: #287A58;
+  --color-warning: #9A681C;
+  --color-error: #B84A45;
+  --color-focus: #D8BC78;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus ring across all interactive controls */
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Editorial Heading Class */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Subtle Islamic Geometric Pattern Overlay */
+.islamic-pattern-subtle {
+  background-image: radial-gradient(#064a43 0.75px, transparent 0.75px), radial-gradient(#064a43 0.75px, #faf7f0 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.05;
 }

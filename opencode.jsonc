@@ -3,16 +3,18 @@
 // Full reference: https://opencode.ai/config.json
 {
   "$schema": "https://opencode.ai/config.json",
-
   // Always inject project context and rules so the mandatory pre-implementation
   // protocol (load agents/skills before any code change) is in effect.
-  "instructions": ["context.md", "AI_RULE.md"],
-
+  "instructions": [
+    "context.md",
+    "AI_RULE.md"
+  ],
   // Register the specialized engineering skills from agents/skills.
   "skills": {
-    "paths": ["agents/skills"]
+    "paths": [
+      "agents/skills"
+    ]
   },
-
   // Convenience commands aligned with the repo's npm scripts.
   "command": {
     "lint": {
@@ -28,7 +30,6 @@
       "template": "Run `npm run dev` to start the local development server."
     }
   },
-
   // Fail-open, AI-friendly permission defaults: keep secrets safe, allow git and npm.
   "permission": {
     "bash": {
@@ -41,7 +42,7 @@
       "*": "allow"
     },
     "external_directory": {
-      "*": "ask"
+      "*": "allow"
     }
   }
 }
