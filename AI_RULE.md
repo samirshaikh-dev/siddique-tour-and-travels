@@ -1,6 +1,7 @@
-# AI Rules & Engineering Directives — Samir Portfolio Dev
+# AI Rules & Engineering Directives — Siddique Tours and Travels
 
-> **Scope:** These rules apply to all AI models, CLIs, and autonomous coding assistants operating on `samir-portfolio-dev`. Adherence is mandatory on every step. Companion directives and references: [`AGENTS.md`](file:///s:/portfolio/samir-portfolio-dev/AGENTS.md) (Universal standards & skill routing) | [`context.md`](file:///s:/portfolio/samir-portfolio-dev/context.md) (Project knowledge graph) | [`gemini.md`](file:///s:/portfolio/samir-portfolio-dev/gemini.md) (Gemini directives) | [`portfolio-theme.md`](file:///s:/portfolio/samir-portfolio-dev/portfolio-theme.md) (Color & theme reference) | [`opencode.jsonc`](file:///s:/portfolio/samir-portfolio-dev/opencode.jsonc) (OpenCode config).
+> **Scope:** These rules apply to all AI models, CLI coding tools (OpenCode, Gemini, Copilot), and autonomous agents operating on `siddique-tour-and-travels`. Adherence is mandatory on every step.  
+> **Companion Directives:** [`DESIGN.md`](file:///s:/client-projects/siddique-tour-and-travels/DESIGN.md) (Emerald Sanctuary Design System & UI Tokens) | [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md) (Next.js 16 Breaking Conventions) | [`opencode.jsonc`](file:///s:/client-projects/siddique-tour-and-travels/opencode.jsonc) (OpenCode Configuration).
 
 ---
 
@@ -9,103 +10,158 @@
 > [!CAUTION]
 > ### STRICT REQUIREMENT: NEVER PROCEED WITHOUT RELEVANT AGENT SKILL
 > Before proposing a technical plan, writing code, creating files, or editing existing files, you **MUST ALWAYS view and load the relevant skill file(s) in `agents/skills/` using `view_file`**.
+>
+> Changes that bypass loading relevant skills risk violating architectural patterns, accessibility mandates, and design tokens.
 
-### Discipline Routing Checklist:
-Load **every** skill whose task area the change touches — they compose, and each declares what it does *not* own.
+### Discipline Routing Checklist
 
-- [ ] **UI & Visual Design:** [`agents/skills/ui-ux-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/ui-ux-engineer/SKILL.md)  
-  *Activates for:* Spacing, visual hierarchy, dark/light contrast, typography, interactive widgets, responsive layouts, design tokens.
-- [ ] **Accessibility & WCAG Conformance:** [`agents/skills/accessibility-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/accessibility-engineer/SKILL.md)  
-  *Activates for:* Keyboard operability, focus management and visible focus, semantic structure, accessible names, live regions, form error announcement, contrast, `prefers-reduced-motion`, modal/drawer behavior, icon-only controls.
-- [ ] **Frontend & App Router Architecture:** [`agents/skills/frontend-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/frontend-engineer/SKILL.md)  
-  *Activates for:* React 19 / Next.js 16 components, Server vs. Client boundaries, SSR-free boundaries, state management, form handling, error states.
-- [ ] **Backend, APIs & Server Logic:** [`agents/skills/backend-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/backend-engineer/SKILL.md)  
-  *Activates for:* `app/api/**` route handlers, request validation, status codes and error shapes, authz boundaries, pagination, idempotency, cache invalidation, non-fatal side effects.
-- [ ] **Database & Data Modeling:** [`agents/skills/database-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/database-engineer/SKILL.md)  
-  *Activates for:* Drizzle schema changes, migrations, indexes, query plans, pgvector/vector storage, constraints and data integrity, `content_chunks` reindexing.
-- [ ] **AI, RAG & LLM Systems:** [`agents/skills/ai-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/ai-engineer/SKILL.md)  
-  *Activates for:* System prompts, chunking, embeddings, retrieval thresholds and grounding, tool calling, model/provider routing, AI output quality and evals, token cost and latency, the `scripts/blog/` pipeline.
-- [ ] **Security & Abuse Prevention:** [`agents/skills/security-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/security-engineer/SKILL.md)  
-  *Activates for:* Authn/authz correctness and ownership checks, secrets handling, untrusted input bounds, XSS, SSRF, injection, rate limiting, upload safety, model-supplied tool arguments, disclosure handling.
-- [ ] **DevOps, CI/CD & Environments:** [`agents/skills/devops-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/devops-engineer/SKILL.md)  
-  *Activates for:* GitHub Actions workflows, Vercel/build configuration, environment variable and secret provisioning, scheduled jobs, caching/CDN and service worker updates, releases and rollback.
-- [ ] **Performance & Latency Optimization:** [`agents/skills/performance-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/performance-engineer/SKILL.md)  
-  *Activates for:* Core Web Vitals, SSR/ISR caching (`revalidate = 3600`, `unstable_cache`), Cloudinary URL optimization, pgvector search latency, bundle size, load/capacity testing, performance target-setting.
-- [ ] **Technical SEO, AEO/GEO & Schema:** [`agents/skills/seo-engineer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/seo-engineer/SKILL.md)  
-  *Activates for:* JSON-LD Schema.org markup, dynamic OpenGraph generation (`opengraph-image.tsx`), XML sitemaps, robots.txt, AI engine citations.
-- [ ] **Keyword Strategy & Content Depth:** [`agents/skills/seo-keyword-research-implementation/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/seo-keyword-research-implementation/SKILL.md)  
-  *Activates for:* Search intent, AI SDE/RAG/FDE keyword mapping, topic clusters, internal links, avoiding keyword cannibalization.
-- [ ] **Professional Profile Optimization:** [`agents/skills/personal-seo-profile-optimizer/SKILL.md`](file:///s:/portfolio/samir-portfolio-dev/agents/skills/personal-seo-profile-optimizer/SKILL.md)  
-  *Activates for:* LinkedIn/GitHub keyword research, recruiter-facing positioning, bio and resume optimization, professional profile audits.
+Load **every** skill whose domain intersects with your task:
 
----
-
-## 2. Tooling, CLI & Execution Guardrails
-
-- **Package Manager:** Exclusively use **`pnpm`** (`packageManager: pnpm@10`). Never run `npm`, `npx` (unless with pnpm dlx), or `yarn`.
-- **Scripts:**
-  - Build verification: `pnpm run build` (`next build --webpack`)
-  - Development server: `pnpm run dev`
-  - Linting: `pnpm run lint`
-  - Blog pipeline: `pnpm run generate-blog`
-- **Shell & Platform:**
-  - Operating System: Windows (PowerShell).
-  - Directory listing: Prefer native tools (`list_dir`) or `dir`.
-  - Git inspection: Prefer `git log -n <N> --oneline` and `git status`.
-  - Prohibited commands: Never run destructive commands (`git reset --hard`, `rm -rf`, dropping tables) without explicit user authorization.
-- **Secret Hygiene:**
-  - Never print, echo, or commit credentials from `.env`.
-  - All secret keys reside strictly in `.env`. Reference `.env.example` for variable names.
+- [ ] **UI & Visual Design:** [`agents/skills/ui-ux-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/ui-ux-engineer/SKILL.md)  
+  *Activates for:* Emerald Sanctuary theme implementation, layout hierarchy, spacing rhythm, color tokens, typography pairing, package cards, hero sections, modal/drawer ergonomics.
+- [ ] **Accessibility & WCAG AA Conformance:** [`agents/skills/accessibility-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/accessibility-engineer/SKILL.md)  
+  *Activates for:* 4.5:1 color contrast, visible keyboard focus (`--color-focus`), touch targets (minimum 44×44px for mobile/elderly pilgrims), semantic HTML, form error announcements, ARIA disclosures, `prefers-reduced-motion`.
+- [ ] **Frontend & Next.js Architecture:** [`agents/skills/frontend-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/frontend-engineer/SKILL.md)  
+  *Activates for:* Next.js 16 App Router, React 19 Server vs. Client component boundaries, React Compiler compatibility, state management, form submissions, mobile navigation, sticky WhatsApp/Call CTAs.
+- [ ] **Backend, APIs & Server Logic:** [`agents/skills/backend-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/backend-engineer/SKILL.md)  
+  *Activates for:* Route handlers (`app/api/**`), lead capture, contact & quote requests, WhatsApp API deep-links, email dispatch, rate limiting, request validation.
+- [ ] **Database & Data Modeling:** [`agents/skills/database-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/database-engineer/SKILL.md)  
+  *Activates for:* Package schemas (Hajj, Umrah, Ziyarat), itineraries, hotel & transport data, booking inquiries, customer records, database migrations.
+- [ ] **Performance & Optimization:** [`agents/skills/performance-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/performance-engineer/SKILL.md)  
+  *Activates for:* Core Web Vitals (LCP, CLS, INP), Next.js 16 Partial Prerendering / Component Caching (`cacheComponents`, `partialPrefetching`), `next/image` optimization, font preloading, bundle size.
+- [ ] **Security & Abuse Prevention:** [`agents/skills/security-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/security-engineer/SKILL.md)  
+  *Activates for:* Form spam protection, Honeypot / CAPTCHA, sanitizing user inquiry inputs, environment variable hygiene, preventing PII leaks from travelers/pilgrims.
+- [ ] **Technical SEO & Rich Snippets:** [`agents/skills/seo-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/seo-engineer/SKILL.md)  
+  *Activates for:* Schema.org JSON-LD (`TravelAgency`, `TouristTrip`, `Offer`, `FAQPage`, `BreadcrumbList`), OpenGraph metadata, dynamic sitemap (`app/sitemap.js`), robots.txt, canonical URLs.
+- [ ] **SEO Keyword Research & Content Depth:** [`agents/skills/seo-keyword-research-implementation/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/seo-keyword-research-implementation/SKILL.md)  
+  *Activates for:* Hajj, Umrah, and Ziyarat keyword mapping, local agency search intent, package comparison guides, pilgrim FAQs, eliminating keyword cannibalization.
+- [ ] **AI & Assistant Systems:** [`agents/skills/ai-engineer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/ai-engineer/SKILL.md)  
+  *Activates for:* AI package recommendation assistants, pilgrimage Q&A assistants, itinerary generator prompts, lead qualification chatbots.
+- [ ] **Personal & Brand Profile Optimizer:** [`agents/skills/personal-seo-profile-optimizer/SKILL.md`](file:///s:/client-projects/siddique-tour-and-travels/agents/skills/personal-seo-profile-optimizer/SKILL.md)  
+  *Activates for:* Trust signals, business credentials, ministry approvals, Google Business Profile alignment, authority positioning.
 
 ---
 
-## 3. Architecture & Code Conventions
+## 2. Core Domain & Brand Directives
 
-### Next.js App Router & Component Boundaries
-- **Server Components by default:** All route pages (`page.tsx`) must be Server Components performing direct Drizzle queries with Incremental Static Regeneration (`export const revalidate = 3600`).
-- **Client Components:** Mark interactive or hook-dependent components with `"use client"`.
-- **SSR-Free Client Boundary:** Client-only components that use browser APIs or window state (`Chatbot`, `PushSettings`, `CloudTransition`) **must** be loaded inside [`components/LazyClientComponents.tsx`](file:///s:/portfolio/samir-portfolio-dev/components/LazyClientComponents.tsx) using `next/dynamic` with `{ ssr: false }` to avoid hydration mismatches.
+### Brand Identity & Mission
+Siddique Tours and Travels is a premier pilgrimage service provider specializing in **Hajj, Umrah, and Ziyarat journeys**. The digital experience must embody:
+- **Peace of Mind:** Transparent itineraries, verified hotel distances, honest pricing, and clear documentation.
+- **Dignity & Spiritual Respect:** High-reverence imagery and language. Sacred phrases must never be used casually as marketing fluff.
+- **Trust Before Decoration:** Agency license details, office contacts, cancellation terms, and verified inclusions come before decorative flourishes.
+- **Accessibility for All Generations:** Pilgrims include elderly travelers and multi-generational families. Large touch targets, high contrast, legible typography, and straightforward contact pathways are non-negotiable.
 
-### Database & Drizzle ORM
-- Connects to Neon Serverless PostgreSQL with `pgvector` (3072 dimensions).
-- Schema defined in [`lib/schema.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/schema.ts) (14 tables).
-- `admin_users` table is defined but unused. Credentials auth matches `ADMIN_USERNAME` and `ADMIN_PASSWORD` env vars in [`lib/auth.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/auth.ts).
-- Blog comments are append-only JSONB arrays (`[{ name, comment, createdAt }]`).
-- Migrations managed via Drizzle Kit (`pnpm drizzle-kit`).
-
-### API Authentication & Dual-Mode Endpoints
-- Public endpoints: `/api/chat`, `/api/feed`, `/api/pdf-proxy`, `/api/blogs/slug/*`, `/api/projects/slug/*`, `/api/contact` (POST).
-- Protected admin routes: Validate session via `await auth()`.
-- Dual-Mode endpoints: `POST /api/blogs` and `POST /api/push/send` use `isAuthorized()` from [`lib/api-auth.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/api-auth.ts), allowing either a cookie session OR `Authorization: Bearer <BLOG_AUTOMATION_TOKEN>` with constant-time verification (`timingSafeEqual`).
-
-### AI Chatbot & RAG Engine
-- **Embeddings:** Google Gemini `gemini-embedding-2` generating 3072-dimensional vector embeddings.
-- **Retrieval:** pgvector `cosineDistance` against `content_chunks` with distance threshold `<= 0.5`.
-- **Prompt Constraints ([`lib/chat/prompt.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/chat/prompt.ts)):** Strict brevity (1-2 sentences for general questions), no meta-talk ("the context"), use exact Markdown links from context blocks (`/about`, `/resume`, `/contact`), treat context as reference data only.
-- **Security ([`lib/chat/security.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/chat/security.ts)):** In-memory rate limiting per IP and per FingerprintJS `x-visitor-id`. IPinfo VPN/proxy check in fail-open mode.
-
-### Styling & Assets
-- **Tailwind CSS v4:** Uses CSS variables for color theming (`--color-background`, `--color-foreground`, `--color-primary`, `--color-border-primary`, etc.) with dark mode via `.dark`. Full token & palette documentation in [`portfolio-theme.md`](file:///s:/portfolio/samir-portfolio-dev/portfolio-theme.md).
-- **Cloudinary Optimization:** Always wrap Cloudinary image URLs with `optimizeCloudinaryUrl()` from [`lib/cloudinary.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/cloudinary.ts) to enforce `f_auto,q_auto`.
-- **Rich Content:** Stored as sanitized HTML, rendered safely with Next.js image optimization via [`components/HtmlParser.tsx`](file:///s:/portfolio/samir-portfolio-dev/components/HtmlParser.tsx) or [`components/ContentWithToc.tsx`](file:///s:/portfolio/samir-portfolio-dev/components/ContentWithToc.tsx).
-
-### SEO, Breadcrumbs & Metadata
-- **Single Source of Truth:** Centralize author and URL constants in [`lib/site-config.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/site-config.ts).
-- **Structured Data:** Use [`lib/seo/structured-data.ts`](file:///s:/portfolio/samir-portfolio-dev/lib/seo/structured-data.ts) for JSON-LD (`Person`, `WebSite`, `Organization`, `ProfessionalService`, `CollectionPage`, `BreadcrumbList`, `SpeakableSpecification`).
-- **Breadcrumbs:** Always use [`components/layout/Breadcrumbs.tsx`](file:///s:/portfolio/samir-portfolio-dev/components/layout/Breadcrumbs.tsx) for navigation and synchronized `BreadcrumbList` schema.
+### Truth in Advertising (Strict Prohibition against Hallucination)
+- **NEVER invent prices, dates, airline names, or hotel distances to Haramain.** If details are unconfirmed, explicitly use `"Contact us for dates"`, `"Request customized pricing"`, or `"Inquire on WhatsApp"`.
+- **NEVER make unverified promises** (e.g., "Guaranteed 100% visa approval" or "The cheapest Hajj in the country").
+- **NEVER use fake reviews, stock pilgrim testimonials, or imaginary government badges.**
 
 ---
 
-## 4. Non-Negotiable Rule Checklist for AI Execution
+## 3. Design System & Visual Guardrails ("Emerald Sanctuary")
 
-1. **Skills First:** Always read relevant skill files in `agents/skills/` before proposing changes or writing code.
-2. **Package Manager:** Always use `pnpm`. Never invoke `npm` or `yarn`.
-3. **No Secret Commits:** Never expose or log `.env` values.
-4. **Server Components by Default:** Fetch data in server components with `revalidate = 3600`.
-5. **Zero Hydration Errors:** Keep non-SSR client widgets inside `LazyClientComponents.tsx`.
-6. **Cloudinary URLs:** Wrap with `optimizeCloudinaryUrl()`.
-7. **Breadcrumb Standard:** Use `Breadcrumbs.tsx` exclusively for breadcrumb trails.
-8. **Sanitized Output:** Never render un-sanitized raw user or LLM HTML.
-9. **Dual Auth Awareness:** Respect `isAuthorized()` on automated endpoints; never weaken session-only routes.
-10. **New Route = New Review:** Any new or changed `app/api/**` route is jointly owned by `backend-engineer` (contract) and `security-engineer` (exposure) before it is considered done.
-11. **Explain Your Work:** Clearly cite which skill was applied and why architectural decisions were made.
+All visual code must conform strictly to [`DESIGN.md`](file:///s:/client-projects/siddique-tour-and-travels/DESIGN.md).
+
+### Color Tokens & Palette
+```css
+:root {
+  --color-primary: #064A43;        /* Deep Emerald - Trust, primary actions, header */
+  --color-primary-hover: #0B6258;  /* Vibrant Emerald Hover */
+  --color-secondary-dark: #102A43;  /* Midnight Navy - High-contrast headers/footers */
+  --color-background: #FAF7F0;     /* Warm Ivory - Soft, comforting canvas */
+  --color-surface: #FFFFFF;        /* Clean White - Crisp cards & form surfaces */
+  --color-sage: #DCE8E1;           /* Sage Mist - Neutral dividers & subtle badges */
+  --color-sand: #E9DFC8;           /* Sand - Warm accents */
+  --color-accent: #B8872D;         /* Muted Gold - Decorative borders, subtle icons ONLY */
+  --color-accent-soft: #D8BC78;    /* Soft Gold */
+  --color-text: #17211F;           /* Deep Charcoal - High-legibility body */
+  --color-text-muted: #596662;     /* Muted Charcoal - Secondary captions */
+  --color-success: #287A58;        /* Verified / Confirmed */
+  --color-warning: #9A681C;        /* Limited availability */
+  --color-error: #B84A45;          /* Form validation errors */
+  --color-focus: #D8BC78;          /* Accessible focus ring outline */
+}
+```
+
+### Color Distribution Rules
+- **55% Warm Ivory & White:** Backgrounds and cards. Keep pages bright, calm, and readable.
+- **25% Deep Emerald & Navy:** Primary buttons, brand headers, key section highlights.
+- **15% Sage & Neutral Surfaces:** Card borders, subtle badges, background contrast bands.
+- **5% Muted Gold:** Icons, small badges, and borders **only**.
+- ⚠️ **Strict Constraint:** Never use gold for long paragraphs or normal text on light backgrounds (fails contrast). Never use pure black `#000000` or aggressive neon colors.
+
+### Typography
+- **Headings (Display):** Refined editorial serif (`Cormorant Garamond`, `Georgia`, or `Playfair Display`).
+- **Body & UI:** Clean, human-centered sans-serif (`Inter`, `Plus Jakarta Sans`, or `system-ui`).
+- **Sentence Case:** Use sentence case for button labels (`"Request a quote"`, `"View itinerary"`), avoiding aggressive ALL CAPS.
+
+### Imagery & Patterns
+- Authentic, respectful photographs of Mecca, Medina, and holy sites under warm natural light.
+- Always use `next/image` with explicit `alt` text, responsive `sizes`, and proper aspect ratios.
+- Subtle geometric Islamic patterns are permitted only at low opacity (10–15%) on section backgrounds or borders. Never place patterns behind dense text.
+
+---
+
+## 4. Technical Architecture & Next.js 16 Guardrails
+
+### Next.js 16 & React 19 Standards
+- **Breaking Changes Aware:** Follow `node_modules/next/dist/docs/` and [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md).
+- **Server Components by Default:** Route files (`src/app/**/page.js` or `page.tsx`) must be Server Components. Render static content on the server for maximum SEO indexability and instantaneous initial load.
+- **Deliberate `"use client"` Boundaries:** Only mark leaves as client components when they require React hooks (`useState`, `useEffect`), event listeners, form interactivity, or interactive drawers.
+- **Turbopack & Tailwind CSS v4:** Styles are powered by `@tailwindcss/turbopack` and Tailwind v4. Do not introduce legacy `@tailwind` directives that conflict with Tailwind v4 `@import "tailwindcss";`.
+- **Zero Hydration Mismatch:** Never access `window`, `localStorage`, or browser-only APIs outside `useEffect` or client-only dynamic imports.
+
+### Package Management & CLI Guardrails
+- **Package Manager:** Exclusively use **`npm`** (`package-lock.json` present). Do not execute `pnpm` or `yarn`.
+- **Common Commands:**
+  - Dev server: `npm run dev`
+  - Production build: `npm run build`
+  - Linting: `npm run lint`
+- **Shell:** Windows PowerShell. Avoid Unix-only syntax (e.g. use proper PowerShell or cross-platform flags).
+- **Destructive Operations:** Never run `git reset --hard`, `git clean -fd`, or delete files without explicit user consent.
+
+---
+
+## 5. Conversion, Forms & Contact UX
+
+### Primary Actions
+Every package and high-intent view must offer clear, direct communication channels:
+1. **WhatsApp Direct Inquiry:** Pre-filled message with package name and traveler count.
+2. **Phone Consultation:** Clear click-to-call link with country code.
+3. **Structured Lead Form:** Short, accessible inquiry form:
+   - Name & Phone/WhatsApp (required).
+   - Package Type (Hajj / Umrah / Ziyarat).
+   - Preferred Month & Number of Travelers.
+   - Departure City.
+   - Optional special requests (elderly wheelchair assistance, private transport).
+
+### Form Behavior
+- Explicit `<label>` elements for every input; never rely on placeholder text alone.
+- Inline validation messages positioned immediately adjacent to the offending field.
+- Loading indicator and disabled state on the submit button while processing.
+- Unambiguous success screen or alert acknowledging receipt with expected follow-up time.
+
+---
+
+## 6. Accessibility & Mobile Optimization Checklist
+
+- [ ] **Contrast:** Minimum 4.5:1 for normal text, 3:1 for large headings and icons.
+- [ ] **Focus Rings:** Distinct, visible 2px outline using `--color-focus` on all interactive `:focus-visible` elements.
+- [ ] **Touch Ergonomics:** All touch targets (buttons, links, form inputs) are at least 44×44px with adequate tap clearance.
+- [ ] **Mobile Reflow:** Single-column layout on mobile viewports; zero horizontal scrolling (`overflow-x: hidden`).
+- [ ] **Sticky Action Bar:** Floating mobile bar providing immediate access to `"Call Now"` and `"WhatsApp"` on package detail pages.
+- [ ] **Motion Sensitivity:** Respect `@media (prefers-reduced-motion: reduce)` by disabling non-essential transitions and animations.
+
+---
+
+## 7. Non-Negotiable AI Execution Checklist
+
+Before presenting your work or concluding a task, verify every item:
+
+1. **Skill Verified:** Did you view and follow the guidelines of the corresponding skill in `agents/skills/`?
+2. **Brand Aligned:** Does the page respect the **Emerald Sanctuary** palette and brand principles in `DESIGN.md`?
+3. **No Fabricated Data:** Are all packages, phone numbers, and agency claims accurate or marked as placeholders/inquiry-based?
+4. **Accessible Contrast:** Are all text elements fully legible against their background?
+5. **Mobile-First Test:** Does the layout degrade gracefully and operate smoothly on small screens?
+6. **Next.js 16 Clean:** Did the code avoid deprecated Next.js patterns and build without lint errors (`npm run lint`)?
+7. **Contact Pathways Clear:** Can the visitor immediately contact the agency via WhatsApp or phone from anywhere on the page?
