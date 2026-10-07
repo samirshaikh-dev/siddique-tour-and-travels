@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
 import Container from "@/components/ui/Container";
-import { getWhatsAppUrl } from "@/lib/utils";
 
 export default function Footer() {
-  const whatsappUrl = getWhatsAppUrl(
-    siteConfig.contact.whatsapp,
-    siteConfig.contact.whatsappDefaultMessage
-  );
   const year = 2026;
 
   return (
@@ -66,30 +61,6 @@ export default function Footer() {
               <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
                 Guiding pilgrims on their sacred Hajj, Umrah, and Ziyarat journeys with sincere devotion, transparent pricing, and dignified personal care since {siteConfig.foundingDate || "2010"}.
               </p>
-
-              {/* WhatsApp Quick Desk Pill */}
-              <div className="pt-2" aria-label="WhatsApp pilgrimage desk">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored nofollow"
-                  className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/5 border border-white/15 hover:border-emerald-500/50 hover:bg-emerald-950/40 transition-all text-xs text-gray-200 group"
-                  aria-label="Chat on WhatsApp for pilgrimage inquiries"
-                >
-                  <span className="relative flex h-2 w-2" aria-hidden="true">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                  </span>
-                  <div>
-                    <span className="font-semibold text-emerald-400 block group-hover:text-emerald-300">
-                      WhatsApp Pilgrimage Desk
-                    </span>
-                    <span className="text-[10px] text-gray-400 block">
-                      Fast response & custom family quotes
-                    </span>
-                  </div>
-                </a>
-              </div>
 
               {/* Social Links */}
               <div className="pt-2" aria-label="Social media profiles">
@@ -343,13 +314,15 @@ export default function Footer() {
           </div>
 
           {/* Bottom Copyright & Disclaimer */}
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-3 text-center md:text-left">
-            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-              <p>
-                &copy; {year} <span className="text-gray-300 font-medium">{siteConfig.name}</span>. All rights reserved.
-              </p>
+          <div className="pt-8 flex flex-col xl:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            {/* Left: Copyright & Designer Credit */}
+            <div className="flex flex-wrap items-center justify-center xl:justify-start gap-x-2.5 gap-y-1 text-center xl:text-left">
+              <span>
+                &copy; {year} <strong className="text-gray-300 font-medium">{siteConfig.name}</strong>.{" "}
+                <span className="whitespace-nowrap">All rights reserved.</span>
+              </span>
               <span className="hidden sm:inline text-gray-600" aria-hidden="true">•</span>
-              <p className="text-gray-400">
+              <span className="whitespace-nowrap text-gray-400">
                 Design and Built by{" "}
                 <a
                   href="https://samir-portfolio-dev.vercel.app/"
@@ -359,11 +332,13 @@ export default function Footer() {
                 >
                   Samir Shaikh
                 </a>
-              </p>
+              </span>
             </div>
-            <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-1 font-light text-gray-400 text-[11px]">
-              <span>Ministry-Compliant • IATA-Recognised Agents</span>
-              <span className="hidden md:inline" aria-hidden="true">|</span>
+
+            {/* Right: Regulatory Reassurance */}
+            <div className="flex flex-wrap items-center justify-center xl:justify-end gap-x-3 gap-y-1 font-light text-gray-400 text-[11px] text-center xl:text-right">
+              <span className="whitespace-nowrap">Ministry-Compliant • IATA-Recognised Agents</span>
+              <span className="hidden sm:inline text-gray-600" aria-hidden="true">•</span>
               <span>Devoted to transparent pricing and verified inclusions for every pilgrim.</span>
             </div>
           </div>
