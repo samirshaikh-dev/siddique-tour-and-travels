@@ -8,6 +8,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
+import { siteConfig } from "@/data/site-config";
 
 export default function HeroParallax({ whatsappUrl }) {
   const heroRef = useRef(null);
@@ -45,7 +46,7 @@ export default function HeroParallax({ whatsappUrl }) {
         <div ref={imageRef} className="relative w-full h-[120%] -top-[10%]">
           <Image
             src="/images/hero-makkah.jpg"
-            alt="The Holy Kaaba at dawn - Sacred Makkah Haram courtyard view for pilgrimage packages by Siddique Tours and Travels"
+            alt={`The Holy Kaaba at dawn - Sacred Makkah Haram courtyard view for pilgrimage packages by ${siteConfig.name}`}
             fill
             priority
             className="object-cover object-center"

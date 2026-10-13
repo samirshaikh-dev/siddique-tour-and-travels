@@ -10,18 +10,18 @@ import { buildJsonLd, getPageSchemas, getTouristTripSchema, getFAQPageSchema } f
 export const metadata = {
   title: "Umrah Packages 2026 | Verified Haram Hotels, Visa & Transport",
   description:
-    "Year-round Umrah packages from India. Verified 3-star to 5-star courtyard hotels near Haram in Makkah & Madinah, direct flights, complete visa facilitation, and 24/7 muallim support by Siddique Tours.",
+    `Year-round Umrah packages from India. Verified 3-star to 5-star courtyard hotels near Haram in Makkah & Madinah, direct flights, complete visa facilitation, and 24/7 muallim support by ${siteConfig.name}.`,
   keywords: [
     "Umrah Packages 2026 from India",
-    "Umrah Packages from Gujarat Vapi",
+    "Umrah Packages Mumbai India",
     "Cheap Umrah Package Makkah Madinah",
     "5 Star Umrah Package Haram View",
     "Courtyard Hotel Umrah Package India",
-    "Umrah Visa Processing from Vapi",
+    "Umrah Visa Facilitation",
     "VIP Executive Umrah Private Transfer",
     "Ramadan Umrah Special Package",
     "Family Umrah Group Packages India",
-    "Luxury Umrah Package Siddique Tours",
+    siteConfig.name,
   ],
   alternates: {
     canonical: "/umrah",
@@ -37,7 +37,7 @@ export const metadata = {
     url: `${siteConfig.url}/umrah`,
     title: "Umrah Packages 2026 | Haram Courtyard Hotels, Visa & Transport from India",
     description:
-      "From budget-friendly group Umrah to 5-star VIP courtyard suites. Verified hotels, full visa, direct flights, and 24/7 muallim guidance by Siddique Tours Vapi.",
+      `From budget-friendly group Umrah to 5-star VIP courtyard suites. Verified hotels, full visa, direct flights, and 24/7 muallim guidance by ${siteConfig.name}.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     alternateLocale: ["en_US", "ar_SA"],
@@ -53,7 +53,7 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: "Siddique Tours Umrah Packages from India",
+        alt: `${siteConfig.name} Umrah Packages from India`,
         type: "image/png",
       },
     ],
@@ -62,9 +62,9 @@ export const metadata = {
     card: "summary_large_image",
     title: "Umrah Packages 2026 | Verified Hotels Near Haram",
     description:
-      "3-Star to 5-Star Umrah packages with visa, transport & muallim. Starting ₹85,000 from India by Siddique Tours Vapi.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+      `3-Star to 5-Star Umrah packages with visa, transport & muallim. Starting ₹85,000 from India by ${siteConfig.name}.`,
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: ["/images/madinah-sanctuary.jpg"],
   },
   robots: {
@@ -88,7 +88,7 @@ const umrahFAQs = [
   {
     question: "Is Umrah visa included in the package?",
     answer:
-      "Yes — every Siddique Tours Umrah package includes full electronic Umrah visa processing with medical insurance, document verification, and Ministry submission. Passport must be valid for minimum 6 months from departure date with at least 2 blank visa pages.",
+      `Yes — every ${siteConfig.name} Umrah package includes full electronic Umrah visa processing with medical insurance, document verification, and Ministry submission. Passport must be valid for minimum 6 months from departure date with at least 2 blank visa pages.`,
   },
   {
     question: "Which hotels do you provide near Haram?",

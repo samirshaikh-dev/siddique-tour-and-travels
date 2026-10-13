@@ -4,7 +4,7 @@ import { siteConfig } from "@/data/site-config";
 export default function manifest() {
   return {
     name: siteConfig.name,
-    short_name: siteConfig.alternateName || "Siddique Tours",
+    short_name: siteConfig.shortName || siteConfig.alternateName || "Al-Safwa",
     description: siteConfig.description,
     start_url: "/",
     display: "standalone",
@@ -38,7 +38,7 @@ export default function manifest() {
       {
         name: "Contact Office",
         url: "/contact",
-        description: "Reach Siddique Tours head office",
+        description: `Reach ${siteConfig.name} head office`,
       },
     ],
   };

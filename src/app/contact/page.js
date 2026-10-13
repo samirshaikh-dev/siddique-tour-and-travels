@@ -6,16 +6,16 @@ import PageHero from "@/components/common/PageHero";
 import { buildJsonLd, getPageSchemas } from "@/lib/seo";
 
 export const metadata = {
-  title: "Contact Head Office | Vapi, Gujarat",
+  title: `Contact Head Office | ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state}`,
   description:
-    `Contact ${siteConfig.name} head office in Vapi, Gujarat. Visit Shop No. 8, Seven Jewellers Complex, Amred. Call ${siteConfig.contact.phoneDisplay}, WhatsApp, or send a written inquiry for Hajj, Umrah & Ziyarat packages.`,
+    `Contact ${siteConfig.name} head office in ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state}. Visit ${siteConfig.contact.address.street}. Call ${siteConfig.contact.phoneDisplay}, WhatsApp, or send a written inquiry for Hajj, Umrah & Ziyarat packages.`,
   keywords: [
-    "Siddique Tours contact number",
-    "Hajj Umrah office Vapi Gujarat",
-    "Contact pilgrimage operator Vapi address",
+    `${siteConfig.name} contact number`,
+    "Hajj Umrah pilgrimage office",
+    "Contact pilgrimage operator address",
     "Pilgrimage inquiry phone number",
-    "Siddique Tours Vapi head office",
-    "Umrah visa inquiry Gujarat contact",
+    `${siteConfig.name} head office`,
+    "Umrah visa inquiry contact",
   ],
   alternates: {
     canonical: "/contact",
@@ -29,8 +29,8 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/contact`,
-    title: `Contact ${siteConfig.name} | Head Office Vapi, Gujarat`,
-    description: `Visit our Vapi head office or call ${siteConfig.contact.phoneDisplay} for Hajj, Umrah and Ziyarat inquiries. WhatsApp, email, and quick inquiry form.`,
+    title: `Contact ${siteConfig.name} | Head Office ${siteConfig.contact.address.city}`,
+    description: `Visit our head office or call ${siteConfig.contact.phoneDisplay} for Hajj, Umrah and Ziyarat inquiries. WhatsApp, email, and quick inquiry form.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -38,17 +38,17 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `Contact ${siteConfig.name} — office in Vapi, Gujarat`,
+        alt: `Contact ${siteConfig.name} — office in ${siteConfig.contact.address.city}`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Contact ${siteConfig.name} | Office Vapi Gujarat`,
+    title: `Contact ${siteConfig.name} | Office ${siteConfig.contact.address.city}`,
     description: `Call ${siteConfig.contact.phoneDisplay} or WhatsApp for pilgrimage package details, quotes, and office hours.`,
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],
   },
   robots: {
@@ -92,9 +92,9 @@ export default function ContactPage() {
         badge="Always At Your Service"
         title="Connect with Our"
         titleHighlight="Pilgrimage Concierge."
-        subtitle="Direct telephone support, instant WhatsApp consultations, and personal hospitality at our Vapi head office."
+        subtitle={`Direct telephone support, instant WhatsApp consultations, and personal hospitality at our ${siteConfig.contact.address.city} head office.`}
         imageSrc="/images/luxury-suite.jpg"
-        imageAlt="Contact Siddique Tours pilgrimage concierge in Vapi"
+        imageAlt={`Contact ${siteConfig.name} pilgrimage concierge in ${siteConfig.contact.address.city}`}
         breadcrumbs={[{ name: "Contact", url: "/contact" }]}
       />
 
@@ -161,17 +161,17 @@ export default function ContactPage() {
               target="_blank"
               rel="noopener noreferrer nofollow"
               className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-accent)] transition-all flex flex-col justify-between"
-              aria-label="View Vapi head office directions on Google Maps"
+              aria-label={`View ${siteConfig.contact.address.city} head office directions on Google Maps`}
             >
               <div>
                 <span className="w-10 h-10 rounded-xl bg-white border border-[var(--color-sage)] flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform" aria-hidden="true">
                   📍
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-accent)] block mb-1">
-                  Head Office • Vapi
+                  Head Office • {siteConfig.contact.address.city}
                 </span>
                 <h3 className="font-display text-base font-bold text-[var(--color-primary)]">
-                  {siteConfig.contact.address.city}, Gujarat
+                  {siteConfig.contact.address.city}, {siteConfig.contact.address.state}
                 </h3>
                 <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light leading-relaxed">
                   {siteConfig.contact.address.street}

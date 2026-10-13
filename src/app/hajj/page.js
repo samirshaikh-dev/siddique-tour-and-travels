@@ -11,18 +11,18 @@ import { buildJsonLd, getPageSchemas, getTouristTripSchema, getFAQPageSchema } f
 export const metadata = {
   title: "Hajj Packages 2026 | Shariat Guidance, Ministry Quota & VIP Tents",
   description:
-    "Official 2026 Hajj packages with Ministry quota coordination, experienced muallims & shariat guidance, comfortable AC Mina & Arafat VIP tents, hygienic catering, medical standby, and elderly pilgrim care by Siddique Tours.",
+    `Official 2026 Hajj packages with Ministry quota coordination, experienced muallims & shariat guidance, comfortable AC Mina & Arafat VIP tents, hygienic catering, medical standby, and elderly pilgrim care by ${siteConfig.name}.`,
   keywords: [
     "Hajj Packages 2026 from India",
-    "Hajj 2026 Registration Quota Gujarat",
-    "Ministry Approved Hajj Operator Vapi",
+    "Hajj 2026 Registration Quota India",
+    "Ministry Approved Hajj Operator",
     "VIP Tent Hajj Package Mina Arafat",
     "Shariat Muallim Guided Hajj 2026",
     "Hajj with Elderly Care Medical Support",
-    "Hajj Package from Mumbai Delhi Ahmedabad",
+    "Hajj Package from Mumbai Delhi India",
     "Qurbani Arranged Hajj Package",
     "Azizia Hotel Hajj 2026 Madinah",
-    "Siddique Tours Hajj Registration",
+    `${siteConfig.name} Hajj Registration`,
   ],
   alternates: {
     canonical: "/hajj",
@@ -38,7 +38,7 @@ export const metadata = {
     url: `${siteConfig.url}/hajj`,
     title: "Hajj 2026 Packages | Shariat Muallim Guidance, Ministry Quota & VIP Mina Tents",
     description:
-      "Complete once-in-a-lifetime Hajj journey with official quota, scholar-guided Mashair rituals, air-conditioned Mina VIP tents, hygienic catering, medical & elderly support from Siddique Tours.",
+      `Complete once-in-a-lifetime Hajj journey with official quota, scholar-guided Mashair rituals, air-conditioned Mina VIP tents, hygienic catering, medical & elderly support from ${siteConfig.name}.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     alternateLocale: ["en_US", "ar_SA"],
@@ -47,14 +47,14 @@ export const metadata = {
         url: "/images/hero-makkah.jpg",
         width: 1200,
         height: 630,
-        alt: "Hajj 2026 packages — Holy Kaaba Makkah with Ministry quota & shariat guidance by Siddique Tours",
+        alt: `Hajj 2026 packages — Holy Kaaba Makkah with Ministry quota & shariat guidance by ${siteConfig.name}`,
         type: "image/jpeg",
       },
       {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: "Siddique Tours Hajj 2026 packages from India",
+        alt: `${siteConfig.name} Hajj 2026 packages from India`,
         type: "image/png",
       },
     ],
@@ -63,9 +63,9 @@ export const metadata = {
     card: "summary_large_image",
     title: "Hajj 2026 Packages | Ministry Quota & Scholar Guidance",
     description:
-      "Official Hajj registration, experienced muallims, VIP Mina tents, and medical support. Call +91 90165 31369.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+      `Official Hajj registration, experienced muallims, VIP Mina tents, and medical support. Call ${siteConfig.contact.phoneDisplay}.`,
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: ["/images/hero-makkah.jpg"],
   },
   robots: {
@@ -79,7 +79,7 @@ const hajjFAQs = [
   {
     question: "When should I register for Hajj 2026?",
     answer:
-      "Hajj quota registration typically opens 6–9 months before the Dhul Hijjah season. Due to limited official Ministry quotas, we strongly advise submitting your Hajj interest form at least 10–12 months in advance, along with passport and supporting documents, to secure a confirmed slot. Call our Vapi office at +91 90165 31369 for current season availability.",
+      `Hajj quota registration typically opens 6–9 months before the Dhul Hijjah season. Due to limited official Ministry quotas, we strongly advise submitting your Hajj interest form at least 10–12 months in advance, along with passport and supporting documents, to secure a confirmed slot. Call our office at ${siteConfig.contact.phoneDisplay} for current season availability.`,
   },
   {
     question: "What facilities are provided during Mashair (Mina / Arafat / Muzdalifah)?",
@@ -89,12 +89,12 @@ const hajjFAQs = [
   {
     question: "Do you provide religious scholars (muallims) throughout Hajj?",
     answer:
-      "Yes — every Siddique Tours Hajj group is accompanied by experienced, multilingual God-fearing muallims who deliver daily pre-Mashair fiqh lectures, step-by-step guidance during Tawaf al-Ifadah and Sa'i, Rami Jamarat procedures, correct halq/taqsir, proper sacrificial offerings, and are on-call 24/7 for any shariat question during the entire pilgrimage.",
+      `Yes — every ${siteConfig.name} Hajj group is accompanied by experienced, multilingual God-fearing muallims who deliver daily pre-Mashair fiqh lectures, step-by-step guidance during Tawaf al-Ifadah and Sa'i, Rami Jamarat procedures, correct halq/taqsir, proper sacrificial offerings, and are on-call 24/7 for any shariat question during the entire pilgrimage.`,
   },
   {
     question: "What is the Hajj package cost for 2026?",
     answer:
-      "Hajj pricing is season-specific and changes annually based on official Ministry tariff, flight fuel charges, and tent category. Please submit the inquiry form on this page or WhatsApp our Vapi office directly for a transparent, itemised quotation including visa fee, accommodation category, meals, and all Mashair services — with no hidden surcharges.",
+      "Hajj pricing is season-specific and changes annually based on official Ministry tariff, flight fuel charges, and tent category. Please submit the inquiry form on this page or WhatsApp our office directly for a transparent, itemised quotation including visa fee, accommodation category, meals, and all Mashair services — with no hidden surcharges.",
   },
 ];
 

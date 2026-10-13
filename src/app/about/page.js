@@ -9,14 +9,14 @@ import { buildJsonLd, getPageSchemas, getFAQPageSchema } from "@/lib/seo";
 export const metadata = {
   title: "About Us | Ministry-Approved Pilgrimage Operator",
   description:
-    "Discover Siddique Tours and Travels — our founding philosophy, ministry credentials, and decades of trust serving Hajj, Umrah & Ziyarat pilgrims from Gujarat, Mumbai, and across India.",
+    `Discover ${siteConfig.name} — our founding philosophy, ministry credentials, and decades of trust serving Hajj, Umrah & Ziyarat pilgrims across India.`,
   keywords: [
-    "About Siddique Tours and Travels",
-    "Ministry approved Hajj operator Vapi",
-    "Trusted Umrah agency Gujarat",
-    "Siddique Tours founding story",
+    `About ${siteConfig.name}`,
+    "Ministry approved Hajj operator",
+    "Trusted Umrah agency India",
+    `${siteConfig.name} founding story`,
     "Pilgrimage operator with muallim support",
-    "Hajj Umrah company history Vapi Gujarat",
+    "Hajj Umrah company credentials",
   ],
   alternates: {
     canonical: "/about",
@@ -50,8 +50,8 @@ export const metadata = {
     title: `About ${siteConfig.name} | Our Story & Credentials`,
     description:
       "Ministry-approved pilgrimage operator built on honesty and care for Hajj, Umrah & Ziyarat from India.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],
   },
   robots: {
@@ -131,7 +131,7 @@ export default function AboutPage() {
         titleHighlight="Elevated in Devotion."
         subtitle="Serving pilgrims from Gujarat, Maharashtra, and across India with sincere devotion, verified courtyard hotels, and transparent care."
         imageSrc="/images/hero-makkah.jpg"
-        imageAlt="Siddique Tours pilgrimage devotion at Makkah"
+        imageAlt={`${siteConfig.name} pilgrimage devotion at Makkah`}
         breadcrumbs={[{ name: "About Us", url: "/about" }]}
       />
 
@@ -188,7 +188,7 @@ export default function AboutPage() {
               Personal Relationship
             </span>
             <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">
-              Meet Us at Our Vapi Head Office
+              Meet Us at Our Head Office
             </h3>
             <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
               We welcome families to sit down with our senior directors at {siteConfig.contact.address.street}, {siteConfig.contact.address.city} for detailed itinerary consultations and visa verification.

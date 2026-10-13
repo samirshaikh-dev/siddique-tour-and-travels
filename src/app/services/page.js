@@ -10,9 +10,9 @@ import { buildJsonLd, getPageSchemas, getServiceSchema, getFAQPageSchema } from 
 export const metadata = {
   title: "Pilgrimage Support Services | Visa, Hotels, Transport & Catering",
   description:
-    "Complete end-to-end pilgrimage support services by Siddique Tours — fast-track Umrah visa & documentation, handpicked Haram-facing hotels, private VIP & group AC transport, Ziyarat guides, elderly wheelchair support and hygienic halal catering.",
+    `Complete end-to-end pilgrimage support services by ${siteConfig.name} — fast-track Umrah visa & documentation, handpicked Haram-facing hotels, private VIP & group AC transport, Ziyarat guides, elderly wheelchair support and hygienic halal catering.`,
   keywords: [
-    "Umrah visa service from Vapi Gujarat",
+    "Umrah visa service India",
     "Haram facing hotel booking Makkah Madinah",
     "AC transport Makkah Madinah Jeddah",
     "Elderly wheelchair support Hajj Umrah",
@@ -20,7 +20,7 @@ export const metadata = {
     "Guided Ziyarat scholar service",
     "Visa passport facilitation pilgrimage",
     "Private VIP chauffeur GMC transfer Makkah",
-    "Pilgrimage support service Siddique Tours",
+    `${siteConfig.name} support service`,
     "Ground handling service Makkah Madinah",
   ],
   alternates: {
@@ -37,7 +37,7 @@ export const metadata = {
     url: `${siteConfig.url}/services`,
     title: "Pilgrimage Services | Visa, Haram Hotels, Transport, Ziyarat & Elderly Care",
     description:
-      "Full logistics for your pilgrimage — fast-track visas, verified Haram hotels, AC coaches, private VIP vehicles, guided Ziyarat, wheelchair escorts and hygienic halal catering by Siddique Tours.",
+      `Full logistics for your pilgrimage — fast-track visas, verified Haram hotels, AC coaches, private VIP vehicles, guided Ziyarat, wheelchair escorts and hygienic halal catering by ${siteConfig.name}.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -45,7 +45,7 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: "Siddique Tours comprehensive pilgrimage support services",
+        alt: `${siteConfig.name} comprehensive pilgrimage support services`,
         type: "image/png",
       },
     ],
@@ -55,8 +55,8 @@ export const metadata = {
     title: "Pilgrimage Services | Visa, Hotels, Transport, Ziyarat & Elderly Care",
     description:
       "Full pilgrimage logistics — visa, Haram hotels, AC transport, Ziyarat, wheelchair & senior care and halal catering.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],
   },
   robots: {
@@ -69,7 +69,7 @@ const servicesFAQs = [
   {
     question: "Can I book individual services instead of a full package?",
     answer:
-      "Yes. Siddique Tours offers each service independently — whether you need only an Umrah visa, only hotel reservations, standalone Ziyarat tours, airport transport, or a private chauffeur for a portion of your stay. Contact our Vapi office for à la carte service pricing and availability.",
+      `Yes. ${siteConfig.name} offers each service independently — whether you need only an Umrah visa, only hotel reservations, standalone Ziyarat tours, airport transport, or a private chauffeur for a portion of your stay. Contact our office for à la carte service pricing and availability.`,
   },
   {
     question: "How fast can you process an Umrah e-visa from India?",
@@ -79,7 +79,7 @@ const servicesFAQs = [
   {
     question: "Do you offer wheelchair and personal assistant services for seniors?",
     answer:
-      "Absolutely. Senior and disabled pilgrim care is a Siddique Tours speciality. We provide pre-booked Tawaf wheelchairs (manual and electric on request), ground-floor or elevator-adjacent hotel rooms, Mashair volunteer escorts, and — on premium packages — a dedicated personal assistant throughout the journey for families travelling with elderly parents.",
+      `Absolutely. Senior and disabled pilgrim care is our speciality at ${siteConfig.name}. We provide pre-booked Tawaf wheelchairs (manual and electric on request), ground-floor or elevator-adjacent hotel rooms, Mashair volunteer escorts, and — on premium packages — a dedicated personal assistant throughout the journey for families travelling with elderly parents.`,
   },
 ];
 

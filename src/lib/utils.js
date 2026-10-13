@@ -1,5 +1,5 @@
 /**
- * Utility functions for Siddique Tours and Travels
+ * Utility functions for Al-Safwa Tours & Travels
  */
 
 /**

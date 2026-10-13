@@ -1,4 +1,4 @@
-# AI Rules & Engineering Directives — Siddique Tours and Travels
+# AI Rules & Engineering Directives — Al-Safwa Tours and Travels
 
 > **Scope:** These rules apply to all AI models, CLI coding tools (OpenCode, Gemini, Copilot), and autonomous agents operating on `siddique-tour-and-travels`. Adherence is mandatory on every step.  
 > **Companion Directives:** [`DESIGN.md`](file:///s:/client-projects/siddique-tour-and-travels/DESIGN.md) (Emerald Sanctuary Design System & UI Tokens) | [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md) (Next.js 16 Breaking Conventions) | [`opencode.jsonc`](file:///s:/client-projects/siddique-tour-and-travels/opencode.jsonc) (OpenCode Configuration).

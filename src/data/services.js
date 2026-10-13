@@ -1,5 +1,5 @@
 /**
- * Services offered by Siddique Tours and Travels
+ * Services offered by Al-Safwa Tours & Travels
  */
 export const services = [
   {

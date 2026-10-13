@@ -1,13 +1,13 @@
-# Siddique Tours and Travels — Gemini Context & System Directives
+# Al-Safwa Tours and Travels — Gemini Context & System Directives
 
-> **Scope:** This document serves as the master prompt context, system instructions, and architecture manual for Gemini, autonomous coding agents, and AI pair-programmers operating within `siddique-tour-and-travels`. Adherence is mandatory on every step.  
+> **Scope:** This document serves as the master prompt context, system instructions, and architecture manual for Gemini, autonomous coding agents, and AI pair-programmers operating within `tour-and-travels-demo`. Adherence is mandatory on every step.  
 > **Companion Documents:** [`AI_RULE.md`](file:///s:/client-projects/siddique-tour-and-travels/AI_RULE.md) (Engineering Rules & Constraints) | [`DESIGN.md`](file:///s:/client-projects/siddique-tour-and-travels/DESIGN.md) (Emerald Sanctuary Design System) | [`context.md`](file:///s:/client-projects/siddique-tour-and-travels/context.md) (Domain Knowledge Base) | [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md) (Next.js 16 Breaking Conventions) | [`opencode.jsonc`](file:///s:/client-projects/siddique-tour-and-travels/opencode.jsonc) (OpenCode CLI Setup).
 
 ---
 
 ## 1. Project Overview & Core Mission
 
-**Siddique Tours and Travels** is a specialized pilgrimage agency dedicated to guiding pilgrims and their families through sacred **Hajj**, **Umrah**, and historical **Ziyarat** journeys.
+**Al-Safwa Tours and Travels** is a specialized pilgrimage agency dedicated to guiding pilgrims and their families through sacred **Hajj**, **Umrah**, and historical **Ziyarat** journeys.
 
 - **Primary Mission:** Provide a serene, trustworthy, transparent, and spiritually respectful online experience. Eliminate travel anxieties by clearly presenting verified accommodations near the Haramain, transparent inclusions, and direct one-click communication channels.
 - **Brand Essence:** **"Peace of Mind in the Sacred Lands"** — rooted in truthfulness (*Sidq*), dignity, patience, and attentive care for travelers across all generations.

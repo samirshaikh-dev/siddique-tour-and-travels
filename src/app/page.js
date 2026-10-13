@@ -13,18 +13,18 @@ import { buildJsonLd, getPageSchemas, getFAQPageSchema, getTouristTripSchema } f
 export const metadata = {
   title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages from India`,
   description:
-    "Siddique Tours and Travels — Ministry-approved Hajj, Umrah & Ziyarat packages from Gujarat & India. Courtyard Haram hotels, 24/7 muallim support, VIP transfers, and complete visa logistics with transparent pricing.",
+    `${siteConfig.name} — Ministry-approved Hajj, Umrah & Ziyarat packages from India. Courtyard Haram hotels, 24/7 muallim support, VIP transfers, and complete visa logistics with transparent pricing.`,
   keywords: [
-    "Siddique Tours and Travels Vapi",
+    siteConfig.name,
     "Hajj Packages 2026 from India",
-    "Umrah Packages from Gujarat",
+    "Umrah Packages from India",
     "Ministry Approved Hajj Operator",
     "Courtyard Hotels Near Haram Makkah",
     "VIP Umrah Package Makkah Madinah",
-    "Ziyarat Tours from Vapi",
-    "Hajj Quota Registration Gujarat",
+    "Guided Ziyarat Tours",
+    "Hajj Quota Registration India",
     "5 Star Umrah Package India",
-    "Vapi Travel Agency Hajj Umrah",
+    "Premium Islamic Pilgrimage Agency",
   ],
   alternates: {
     canonical: "/",
@@ -49,18 +49,18 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: "Siddique Tours and Travels — Premium Hajj Umrah Ziyarat Packages",
+        alt: `${siteConfig.name} — Premium Hajj Umrah Ziyarat Packages`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Hajj, Umrah & Ziyarat from Vapi, Gujarat`,
+    title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages`,
     description:
-      "Trusted pilgrimage operator. Haram-courtyard hotels, muallim support, full visa logistics. Call +91 90165 31369.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+      `Trusted pilgrimage operator. Haram-courtyard hotels, muallim support, full visa logistics. Call ${siteConfig.contact.phoneDisplay}.`,
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],
   },
   robots: {
@@ -156,7 +156,7 @@ export default function HomePage() {
             >
               <Image
                 src="/images/madinah-sanctuary.jpg"
-                alt="Masjid an-Nabawi Madinah sanctuary at sunset — Umrah packages by Siddique Tours"
+                alt={`Masjid an-Nabawi Madinah sanctuary at sunset — Umrah packages by ${siteConfig.name}`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 33vw"
@@ -193,7 +193,7 @@ export default function HomePage() {
             >
               <Image
                 src="/images/hero-makkah.jpg"
-                alt="Holy Kaaba courtyard Makkah during Hajj season — Siddique Tours Hajj packages"
+                alt={`Holy Kaaba courtyard Makkah during Hajj season — ${siteConfig.name} Hajj packages`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 sizes="(max-width: 1024px) 100vw, 33vw"
@@ -265,7 +265,7 @@ export default function HomePage() {
       {/* =========================================================================
           4. THE COURTYARD SANCTUARY EXPERIENCE (ASYMMETRICAL LUXURY SPOTLIGHT)
           ========================================================================= */}
-      <section aria-label="Why choose Siddique Tours pilgrimage experience" className="py-24 bg-[var(--color-surface)] border-y border-[var(--color-sage)]/60">
+      <section aria-label={`Why choose ${siteConfig.name} pilgrimage experience`} className="py-24 bg-[var(--color-surface)] border-y border-[var(--color-sage)]/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Visual: Floor-to-ceiling Kaaba suite view */}
@@ -292,10 +292,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Copy: The Siddique Distinction */}
+            {/* Copy: The Pilgrimage Distinction */}
             <div className="lg:col-span-5 space-y-6">
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] block">
-                The Siddique Distinction
+                The Pilgrimage Distinction
               </span>
 
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] leading-tight">
@@ -407,11 +407,11 @@ export default function HomePage() {
             “
           </span>
           <blockquote className="font-display text-2xl sm:text-3xl lg:text-4xl italic font-light text-white leading-relaxed mb-6">
-            When my elderly parents traveled with Siddique Tours, their courtyard hotel and dedicated muallim support made every ritual effortless. It was the most peaceful journey of our lives.
+            When my elderly parents traveled with {siteConfig.name}, their courtyard hotel and dedicated muallim support made every ritual effortless. It was the most peaceful journey of our lives.
           </blockquote>
           <div className="w-12 h-0.5 bg-[var(--color-accent-soft)] mx-auto mb-4" />
           <cite className="not-italic text-sm font-medium tracking-wide text-emerald-100 uppercase block">
-            Dr. Tariq Khan & Family • Vapi, Gujarat
+            Dr. Tariq Khan & Family • Mumbai, India
           </cite>
         </Container>
       </section>

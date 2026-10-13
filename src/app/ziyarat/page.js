@@ -21,7 +21,7 @@ export const metadata = {
     "Ziyarat tour package from India 2026",
     "Guided historical Ziyarat scholar",
     "Jabal al-Noor Jabal al-Rahmah visit",
-    "Siddique Tours Ziyarat package",
+    `${siteConfig.name} Ziyarat package`,
   ],
   alternates: {
     canonical: "/ziyarat",
@@ -37,7 +37,7 @@ export const metadata = {
     url: `${siteConfig.url}/ziyarat`,
     title: "Ziyarat Tours | Cave Hira, Mount Uhud & Sacred Islamic Heritage Sites",
     description:
-      "8-day guided Ziyarat tour covering sacred historical sites in Makkah, Madinah and Hejaz with scholarly narrations in Urdu, Hindi & English by Siddique Tours.",
+      `8-day guided Ziyarat tour covering sacred historical sites in Makkah, Madinah and Hejaz with scholarly narrations in Urdu, Hindi & English by ${siteConfig.name}.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -52,7 +52,7 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: "Siddique Tours Ziyarat historical packages from India",
+        alt: `${siteConfig.name} Ziyarat historical packages from India`,
         type: "image/png",
       },
     ],
@@ -62,8 +62,8 @@ export const metadata = {
     title: "Ziyarat Tours | Sacred Historical Sites in Makkah & Madinah",
     description:
       "Guided historical tours covering Cave Hira, Uhud, and Quba with expert scholars. Starting ₹65,000 from India.",
-    creator: "@siddiquetours",
-    site: "@siddiquetours",
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     images: ["/images/ziyarat-mountains.jpg"],
   },
   robots: {
@@ -92,7 +92,7 @@ const ziyaratFAQs = [
   {
     question: "Can I combine Ziyarat with my Umrah or Hajj?",
     answer:
-      "Yes — every Siddique Tours Umrah package includes complimentary guided Ziyarat in both Makkah and Madinah. Hajj packages likewise include post-Hajj Ziyarat before returning to India. We also offer stand-alone extended Ziyarat packages for pilgrims wishing to spend more time on the educational and historical aspects of Hejaz beyond the obligatory rituals.",
+      `Yes — every ${siteConfig.name} Umrah package includes complimentary guided Ziyarat in both Makkah and Madinah. Hajj packages likewise include post-Hajj Ziyarat before returning to India. We also offer stand-alone extended Ziyarat packages for pilgrims wishing to spend more time on the educational and historical aspects of Hejaz beyond the obligatory rituals.`,
   },
 ];
 

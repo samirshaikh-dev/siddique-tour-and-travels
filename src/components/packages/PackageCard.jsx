@@ -17,11 +17,11 @@ function buildPackageAltText(pkg) {
   const priceStr = pkg.priceStarting
     ? ` starting ${formatCurrency(pkg.priceStarting)}`
     : "";
-  return `${pkg.title} — ${pkg.duration} ${category} package${hotelStr}${priceStr} by ${siteConfig.name} Vapi Gujarat`;
+  return `${pkg.title} — ${pkg.duration} ${category} package${hotelStr}${priceStr} by ${siteConfig.name}`;
 }
 
 export default function PackageCard({ pkg }) {
-  const whatsappMessage = `Assalam Alaikum, I would like to inquire about the "${pkg.title}" (${pkg.duration}) with Siddique Tours. Please share full itinerary, ${pkg.makkahHotel ? "Makkah hotel " + pkg.makkahHotel.name : ""} ${pkg.category === "Umrah" || pkg.category === "Hajj" ? "and current availability." : "."}`;
+  const whatsappMessage = `Assalam Alaikum, I would like to inquire about the "${pkg.title}" (${pkg.duration}) with ${siteConfig.name}. Please share full itinerary, ${pkg.makkahHotel ? "Makkah hotel " + pkg.makkahHotel.name : ""} ${pkg.category === "Umrah" || pkg.category === "Hajj" ? "and current availability." : "."}`;
   const whatsappUrl = getWhatsAppUrl(siteConfig.contact.whatsapp, whatsappMessage);
   const altText = buildPackageAltText(pkg);
   const slugAnchor = pkg.slug ? `#${pkg.slug}` : "";

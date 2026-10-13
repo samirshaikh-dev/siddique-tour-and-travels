@@ -1,8 +1,8 @@
-# Siddique Tours and Travels — Design System
+# Al-Safwa Tours and Travels — Design System
 
 ## Purpose
 
-This document defines the visual and UX direction for the Siddique Tours and Travels website. It is written for AI agents, CLI tools, designers, and developers who generate or modify pages, components, copy, and styles.
+This document defines the visual and UX direction for the Al-Safwa Tours and Travels website. It is written for AI agents, CLI tools, designers, and developers who generate or modify pages, components, copy, and styles.
 
 The website represents a Hajj, Umrah, and Ziyarat travel agency. The experience must feel calm, trustworthy, spiritually respectful, premium, and customer-friendly.
 
@@ -416,9 +416,9 @@ Avoid:
 
 Suggested page titles:
 
-- `Siddique Tours and Travels | Hajj, Umrah and Ziyarat Packages`
-- `Umrah Packages | Siddique Tours and Travels`
-- `Hajj Travel Assistance | Siddique Tours and Travels`
+- `Al-Safwa Tours and Travels | Hajj, Umrah and Ziyarat Packages`
+- `Umrah Packages | Al-Safwa Tours and Travels`
+- `Hajj Travel Assistance | Al-Safwa Tours and Travels`
 - `Ziyarat Tours and Religious Travel Services`
 
 ## AI agent instructions
@@ -461,4 +461,4 @@ Before accepting a generated page, verify:
 
 ## Definition of done
 
-A page is ready when it feels calm within the first few seconds, explains the service without confusion, presents the next action clearly, works well on mobile, and makes the visitor feel that Siddique Tours and Travels can responsibly guide their journey.
+A page is ready when it feels calm within the first few seconds, explains the service without confusion, presents the next action clearly, works well on mobile, and makes the visitor feel that Al-Safwa Tours and Travels can responsibly guide their journey.

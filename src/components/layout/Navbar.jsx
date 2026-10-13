@@ -82,7 +82,7 @@ export default function Navbar() {
             itemProp="name"
             className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-primary)] tracking-tight"
           >
-            Siddique
+            {siteConfig.shortName || "Al-Safwa"}
           </span>
           <span className="text-[10px] sm:text-xs font-semibold tracking-widest uppercase text-[var(--color-accent)] -mt-1">
             Tours & Travels

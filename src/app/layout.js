@@ -113,9 +113,9 @@ export const metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Pilgrimage Packages`,
     description: siteConfig.description,
-    creator: "@siddiquetours",
+    creator: siteConfig.socials.twitter || "@alsafwatravels",
     creatorId: "",
-    site: "@siddiquetours",
+    site: siteConfig.socials.twitter || "@alsafwatravels",
     siteId: "",
     images: [
       {
@@ -136,7 +136,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: siteConfig.alternateName || "Siddique Tours",
+    title: siteConfig.alternateName || "Al-Safwa Tours",
     startupImage: ["/apple-touch-icon.png"],
   },
   appLinks: {

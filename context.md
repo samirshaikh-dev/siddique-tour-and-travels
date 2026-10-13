@@ -1,12 +1,12 @@
-# Siddique Tours and Travels — Project Context & Knowledge Base
+# Al-Safwa Tours and Travels — Project Context & Knowledge Base
 
 ## 1. Project Overview
-- **Name:** Siddique Tours and Travels (`siddique-tour-and-travels`)
+- **Name:** Al-Safwa Tours and Travels (`tour-and-travels-demo`)
 - **Domain:** Pilgrimage and religious travel agency specializing in **Hajj**, **Umrah**, and **Ziyarat** journeys.
-- **Goal:** Deliver a calm, trustworthy, spiritually respectful, and premium online presence that empowers pilgrims and their families to explore packages, understand inclusions, and easily contact the agency for quotes and bookings.
-- **Head Office:** Shop No 8, Seven Jewellers Complex, Amred, Near Sonorous, Vapi East, Gita Nagar, Vapi, Gujarat – 396191.
-- **Helpline / Phone:** `+91 90165 31369` (WhatsApp: `+919016531369`).
-- **Official Email:** `info@siddiquetours.com`.
+- **Goal:** Deliver a calm, trustworthy, spiritually respectful, and premium online showcase that empowers pilgrims and their families to explore packages, understand inclusions, and easily contact the agency for quotes and bookings.
+- **Head Office:** Suite 402, Elite Business Hub, Linking Road, Bandra West, Mumbai, Maharashtra – 400050.
+- **Helpline / Phone:** `+91 98765 43210` (WhatsApp: `+919876543210`).
+- **Official Email:** `contact@alsafwa-travels.com`.
 - **Design System:** **Emerald Sanctuary** (documented in [`DESIGN.md`](file:///s:/client-projects/siddique-tour-and-travels/DESIGN.md)).
 - **Directives:** [`AI_RULE.md`](file:///s:/client-projects/siddique-tour-and-travels/AI_RULE.md) & [`AGENTS.md`](file:///s:/client-projects/siddique-tour-and-travels/AGENTS.md).
 

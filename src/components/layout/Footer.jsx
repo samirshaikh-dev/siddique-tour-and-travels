@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <span className="text-[var(--color-accent-soft)]" aria-hidden="true">✦</span>
               <span className="font-medium tracking-wide">
-                Hajj & Umrah Authorised Organiser • Vapi, Gujarat, India
+                Hajj & Umrah Authorised Organiser • {siteConfig.contact.address.city}, India
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-gray-400 text-[11px] sm:text-xs">
@@ -45,13 +45,13 @@ export default function Footer() {
         <Container>
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-white/10">
             {/* Column 1: Brand & Commitment */}
-            <div className="space-y-4" aria-label="About Siddique Tours">
+            <div className="space-y-4" aria-label={`About ${siteConfig.name}`}>
               <div itemScope itemType="https://schema.org/Organization" className="space-y-2">
                 <link itemProp="url" href={siteConfig.url} />
                 <meta itemProp="name" content={siteConfig.name} />
                 <meta itemProp="logo" content={`${siteConfig.url}/logo.png`} />
                 <span className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  Siddique
+                  {siteConfig.shortName || "Al-Safwa"}
                 </span>
                 <span className="block text-xs font-semibold tracking-widest uppercase text-[var(--color-accent-soft)] mt-0.5">
                   Tours & Travels
@@ -59,7 +59,7 @@ export default function Footer() {
               </div>
 
               <p className="text-xs sm:text-sm text-gray-300 font-light leading-relaxed">
-                Guiding pilgrims on their sacred Hajj, Umrah, and Ziyarat journeys with sincere devotion, transparent pricing, and dignified personal care since {siteConfig.foundingDate || "2010"}.
+                Guiding pilgrims on their sacred Hajj, Umrah, and Ziyarat journeys with sincere devotion, transparent pricing, and dignified personal care since {siteConfig.foundingDate || "2012"}.
               </p>
 
               {/* Social Links */}
@@ -194,13 +194,13 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:text-white transition-colors" aria-label="About Siddique Tours founding and credentials">
-                    Siddique Tours — Our Story
+                  <Link href="/about" className="hover:text-white transition-colors" aria-label={`About ${siteConfig.name} founding and credentials`}>
+                    {siteConfig.shortName || "Al-Safwa"} Tours — Our Story
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-white transition-colors" aria-label="Siddique Tours Vapi head office address and contact">
-                    Head Office Vapi — Visit Us
+                  <Link href="/contact" className="hover:text-white transition-colors" aria-label={`${siteConfig.name} head office address and contact`}>
+                    Head Office — Visit Us
                   </Link>
                 </li>
               </ul>
@@ -219,7 +219,7 @@ export default function Footer() {
                 <meta itemProp="priceRange" content="$$" />
                 <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
                   <h4 className="font-semibold text-white text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
-                    Head Office • Vapi
+                    Head Office • {siteConfig.contact.address.city}
                   </h4>
                   <span className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30">
                     Visit Us
@@ -290,7 +290,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer nofollow"
                     className="inline-flex items-center gap-1.5 text-[11px] text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
-                    aria-label={`View ${siteConfig.name} Vapi head office on Google Maps`}
+                    aria-label={`View ${siteConfig.name} head office on Google Maps`}
                   >
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path

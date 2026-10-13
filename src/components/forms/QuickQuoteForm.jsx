@@ -21,7 +21,7 @@ export default function QuickQuoteForm({ className }) {
   };
 
   function buildWhatsAppMessage(data) {
-    return `Assalam Alaikum Siddique Tours,
+    return `Assalam Alaikum ${siteConfig.name},
 
 I would like to inquire about a pilgrimage package:
 
@@ -157,7 +157,7 @@ Please share available departure dates, hotel details near the Haram, and custom
             required
             value={formData.name}
             onChange={handleChange}
-            placeholder="e.g. Mohammed Siddique"
+            placeholder="e.g. Mohammed Ahmed"
             className="w-full px-3.5 py-2.5 bg-[var(--color-background)] border border-[var(--color-sand)] rounded-xl text-sm text-[var(--color-text)] focus:border-[var(--color-primary)] focus:bg-white outline-none transition-colors"
           />
         </div>
