@@ -72,8 +72,17 @@ export function getTravelAgencySchema() {
       longitude: siteConfig.contact.address.geo.lng,
     },
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      `${siteConfig.name} ${siteConfig.contact.address.street} ${siteConfig.contact.address.city}`
+      `${siteConfig.name} ${siteConfig.contact.address.street} ${siteConfig.contact.address.city} ${siteConfig.contact.address.pincode}`
     )}`,
+    containedInPlace: {
+      "@type": "AdministrativeArea",
+      name: `${siteConfig.contact.address.district || "Valsad"} District, South Gujarat`,
+    },
+    knowsLanguage: ["en", "gu", "hi", "ur", "ar"],
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", ".speakable-summary", "[itemprop='description']"],
+    },
     priceRange: siteConfig.priceRange,
     currenciesAccepted: siteConfig.pricingCurrency,
     paymentAccepted: (siteConfig.paymentAccepted || []).join(", "),
@@ -109,12 +118,13 @@ export function getTravelAgencySchema() {
     makesOffer: [
       {
         "@type": "Offer",
+        name: "Hajj 2026 Package from Vapi, Gujarat",
         itemOffered: {
           "@type": "Service",
-          name: "Hajj Packages",
-          description: "Shariat-guided Hajj with ministry quota coordination, muallim guidance, and Mashair tents.",
+          name: "Hajj Packages 2026",
+          description: "Official Ministry-quota Hajj packages for pilgrims from Vapi, Valsad and South Gujarat. Scholar muallims, VIP air-conditioned Mina tents, and all-inclusive logistics.",
           serviceType: "Hajj Pilgrimage",
-          areaServed: "India",
+          areaServed: ["Vapi", "Valsad", "South Gujarat", "India"],
           provider: { "@id": `${siteConfig.url}#organization` },
         },
         url: `${siteConfig.url}/hajj`,
@@ -123,12 +133,13 @@ export function getTravelAgencySchema() {
       },
       {
         "@type": "Offer",
+        name: "15 Days Classic Umrah Package from Vapi",
         itemOffered: {
           "@type": "Service",
-          name: "Umrah Packages",
-          description: "Year-round Umrah packages from 3-star to 5-star courtyard hotels with visa and transport.",
+          name: "Umrah Packages from Vapi",
+          description: "All-inclusive year-round Umrah journeys departing with Mumbai/Surat flight connections for pilgrims from Vapi (396191) & Valsad. Walking distance Haram hotels, visa facilitation & muallim support.",
           serviceType: "Umrah Pilgrimage",
-          areaServed: "India",
+          areaServed: ["Vapi", "Valsad", "Daman", "Silvassa", "South Gujarat"],
           provider: { "@id": `${siteConfig.url}#organization` },
         },
         url: `${siteConfig.url}/umrah`,
@@ -137,12 +148,13 @@ export function getTravelAgencySchema() {
       },
       {
         "@type": "Offer",
+        name: "Guided Historical Ziyarat Tours from Vapi",
         itemOffered: {
           "@type": "Service",
-          name: "Ziyarat Tours",
-          description: "Guided historical Ziyarat tours of sacred Makkah, Madinah, and Hejaz heritage sites.",
+          name: "Ziyarat Tours Makkah & Madinah",
+          description: "Scholarly guided Islamic heritage tours covering Cave Hira, Mount Uhud, and sacred Hejaz historical sites.",
           serviceType: "Ziyarat & Islamic Heritage",
-          areaServed: "India",
+          areaServed: ["Vapi", "Gujarat", "India"],
           provider: { "@id": `${siteConfig.url}#organization` },
         },
         url: `${siteConfig.url}/ziyarat`,

@@ -6,16 +6,17 @@ import PageHero from "@/components/common/PageHero";
 import { buildJsonLd, getPageSchemas } from "@/lib/seo";
 
 export const metadata = {
-  title: `Contact Head Office | ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state}`,
+  title: `Contact Head Office Vapi (396191) | ${siteConfig.name} Gujarat`,
   description:
-    `Contact ${siteConfig.name} head office in ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state}. Visit ${siteConfig.contact.address.street}. Call ${siteConfig.contact.phoneDisplay}, WhatsApp, or send a written inquiry for Hajj, Umrah & Ziyarat packages.`,
+    `Visit ${siteConfig.name} head office in Vapi (PIN 396191), Gujarat at ${siteConfig.contact.address.street}. Call ${siteConfig.contact.phoneDisplay}, WhatsApp, or book an in-person appointment for Hajj & Umrah.`,
   keywords: [
-    `${siteConfig.name} contact number`,
-    "Hajj Umrah pilgrimage office",
-    "Contact pilgrimage operator address",
-    "Pilgrimage inquiry phone number",
-    `${siteConfig.name} head office`,
-    "Umrah visa inquiry contact",
+    `${siteConfig.name} Vapi contact`,
+    "Hajj Umrah Office Vapi 396191",
+    "Contact Pilgrimage Operator Vapi Gujarat",
+    "Umrah Visa Agent Vapi Valsad",
+    "Hajj Tour Agency Near Vapi Station East",
+    "Pilgrimage Office South Gujarat",
+    siteConfig.name,
   ],
   alternates: {
     canonical: "/contact",
@@ -29,8 +30,8 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/contact`,
-    title: `Contact ${siteConfig.name} | Head Office ${siteConfig.contact.address.city}`,
-    description: `Visit our head office or call ${siteConfig.contact.phoneDisplay} for Hajj, Umrah and Ziyarat inquiries. WhatsApp, email, and quick inquiry form.`,
+    title: `Contact Head Office Vapi (396191) | ${siteConfig.name} Gujarat`,
+    description: `Visit our head office in Vapi East (PIN 396191) or call ${siteConfig.contact.phoneDisplay} for Hajj, Umrah and Ziyarat consultations. In-person family assistance.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -38,15 +39,15 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `Contact ${siteConfig.name} — office in ${siteConfig.contact.address.city}`,
+        alt: `Contact ${siteConfig.name} — Office in Vapi (396191), Gujarat`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Contact ${siteConfig.name} | Office ${siteConfig.contact.address.city}`,
-    description: `Call ${siteConfig.contact.phoneDisplay} or WhatsApp for pilgrimage package details, quotes, and office hours.`,
+    title: `Contact Office Vapi (396191) | ${siteConfig.name}`,
+    description: `Call ${siteConfig.contact.phoneDisplay} or WhatsApp for pilgrimage package details, quotes, and office appointments in Vapi.`,
     creator: siteConfig.socials.twitter || "@alsafwatravels",
     site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],

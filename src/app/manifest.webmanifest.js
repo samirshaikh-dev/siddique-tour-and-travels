@@ -1,4 +1,3 @@
-import { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site-config";
 
 export default function manifest() {

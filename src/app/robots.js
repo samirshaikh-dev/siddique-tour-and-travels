@@ -6,31 +6,29 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: [
-          "/api/",
-          "/_next/",
-          "/_static/",
-          "/*.json$",
-          "/*.xml$",
-          "/*.txt$",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/api/", "/_next/", "/_static/"],
+      },
+      {
+        userAgent: [
+          "GPTBot",
+          "PerplexityBot",
+          "ClaudeBot",
+          "Google-Extended",
+          "Applebot-Extended",
+          "Amazonbot",
         ],
+        allow: ["/", "/llms.txt"],
+        disallow: ["/api/"],
       },
       {
         userAgent: "Googlebot",
-        allow: "/",
+        allow: ["/", "/llms.txt"],
         disallow: ["/api/"],
-        crawlDelay: 2,
       },
       {
         userAgent: "Bingbot",
-        allow: "/",
-        disallow: ["/api/"],
-        crawlDelay: 3,
-      },
-      {
-        userAgent: "YandexBot",
-        allow: "/",
+        allow: ["/", "/llms.txt"],
         disallow: ["/api/"],
       },
     ],

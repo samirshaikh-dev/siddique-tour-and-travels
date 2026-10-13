@@ -8,20 +8,19 @@ import { siteConfig } from "@/data/site-config";
 import { buildJsonLd, getPageSchemas, getServiceSchema, getFAQPageSchema } from "@/lib/seo";
 
 export const metadata = {
-  title: "Pilgrimage Support Services | Visa, Hotels, Transport & Catering",
+  title: `Pilgrimage Services in Vapi (396191) | Visa, Hotels & Transit | ${siteConfig.name}`,
   description:
-    `Complete end-to-end pilgrimage support services by ${siteConfig.name} — fast-track Umrah visa & documentation, handpicked Haram-facing hotels, private VIP & group AC transport, Ziyarat guides, elderly wheelchair support and hygienic halal catering.`,
+    `Comprehensive pilgrimage support services from Vapi (396191), Gujarat by ${siteConfig.name} — fast-track Umrah visas, courtyard Haram hotels, Mumbai/Surat airport shuttles, and wheelchair care.`,
   keywords: [
-    "Umrah visa service India",
-    "Haram facing hotel booking Makkah Madinah",
-    "AC transport Makkah Madinah Jeddah",
-    "Elderly wheelchair support Hajj Umrah",
-    "Halal catering for pilgrimage groups",
-    "Guided Ziyarat scholar service",
-    "Visa passport facilitation pilgrimage",
-    "Private VIP chauffeur GMC transfer Makkah",
-    `${siteConfig.name} support service`,
-    "Ground handling service Makkah Madinah",
+    "Umrah Visa Service Vapi 396191",
+    "Pilgrimage Logistics South Gujarat",
+    "Airport Transit Vapi to Mumbai Airport",
+    "Airport Transit Vapi to Surat Airport",
+    "Elderly Wheelchair Assistance Umrah Vapi",
+    "Haram Facing Hotel Booking Gujarat",
+    "Halal Catering Pilgrimage Groups",
+    "Private VIP Chauffeur Transfer Makkah",
+    siteConfig.name,
   ],
   alternates: {
     canonical: "/services",
@@ -35,9 +34,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/services`,
-    title: "Pilgrimage Services | Visa, Haram Hotels, Transport, Ziyarat & Elderly Care",
+    title: `Pilgrimage Services in Vapi (396191) | ${siteConfig.name}`,
     description:
-      `Full logistics for your pilgrimage — fast-track visas, verified Haram hotels, AC coaches, private VIP vehicles, guided Ziyarat, wheelchair escorts and hygienic halal catering by ${siteConfig.name}.`,
+      `Full pilgrimage logistics for Gujarat travelers — fast-track visas, verified Haram hotels, airport transfers from Vapi, and senior pilgrim escorts by ${siteConfig.name}.`,
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -45,16 +44,16 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} comprehensive pilgrimage support services`,
+        alt: `${siteConfig.name} comprehensive pilgrimage support services in Vapi Gujarat`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pilgrimage Services | Visa, Hotels, Transport, Ziyarat & Elderly Care",
+    title: `Pilgrimage Services in Vapi (396191) | ${siteConfig.name}`,
     description:
-      "Full pilgrimage logistics — visa, Haram hotels, AC transport, Ziyarat, wheelchair & senior care and halal catering.",
+      "Full pilgrimage logistics — visa, Haram hotels, AC transport, Ziyarat, wheelchair & senior care.",
     creator: siteConfig.socials.twitter || "@alsafwatravels",
     site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],

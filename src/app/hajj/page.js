@@ -9,20 +9,19 @@ import { siteConfig } from "@/data/site-config";
 import { buildJsonLd, getPageSchemas, getTouristTripSchema, getFAQPageSchema } from "@/lib/seo";
 
 export const metadata = {
-  title: "Hajj Packages 2026 | Shariat Guidance, Ministry Quota & VIP Tents",
+  title: "Hajj Packages 2026 from Vapi, Gujarat | Ministry Quota & Scholar Guidance",
   description:
-    `Official 2026 Hajj packages with Ministry quota coordination, experienced muallims & shariat guidance, comfortable AC Mina & Arafat VIP tents, hygienic catering, medical standby, and elderly pilgrim care by ${siteConfig.name}.`,
+    `Official 2026 Hajj packages for pilgrims from Vapi (396191), Valsad, and South Gujarat. Ministry quota coordination, scholar muallims, VIP air-conditioned Mina tents, and comprehensive elderly care by ${siteConfig.name}.`,
   keywords: [
-    "Hajj Packages 2026 from India",
-    "Hajj 2026 Registration Quota India",
-    "Ministry Approved Hajj Operator",
+    "Hajj Packages 2026 Vapi",
+    "Hajj 2026 Registration Gujarat 396191",
+    "Ministry Approved Hajj Operator Vapi Valsad",
     "VIP Tent Hajj Package Mina Arafat",
-    "Shariat Muallim Guided Hajj 2026",
-    "Hajj with Elderly Care Medical Support",
-    "Hajj Package from Mumbai Delhi India",
-    "Qurbani Arranged Hajj Package",
-    "Azizia Hotel Hajj 2026 Madinah",
-    `${siteConfig.name} Hajj Registration`,
+    "Shariat Muallim Guided Hajj Gujarat",
+    "Hajj with Elderly Care Medical Support Vapi",
+    "Hajj Package from Mumbai & Surat for Gujarat Pilgrims",
+    "Hajj Quota South Gujarat",
+    siteConfig.name,
   ],
   alternates: {
     canonical: "/hajj",
@@ -36,9 +35,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/hajj`,
-    title: "Hajj 2026 Packages | Shariat Muallim Guidance, Ministry Quota & VIP Mina Tents",
+    title: "Hajj 2026 Packages from Vapi, Gujarat | Ministry Quota & VIP Mina Tents",
     description:
-      `Complete once-in-a-lifetime Hajj journey with official quota, scholar-guided Mashair rituals, air-conditioned Mina VIP tents, hygienic catering, medical & elderly support from ${siteConfig.name}.`,
+      `Complete once-in-a-lifetime Hajj journey with official quota, scholar-guided Mashair rituals, air-conditioned Mina VIP tents, and medical support from ${siteConfig.name} in Vapi (396191).`,
     siteName: siteConfig.name,
     locale: "en_IN",
     alternateLocale: ["en_US", "ar_SA"],
@@ -54,16 +53,16 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} Hajj 2026 packages from India`,
+        alt: `${siteConfig.name} Hajj 2026 packages from Vapi Gujarat`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hajj 2026 Packages | Ministry Quota & Scholar Guidance",
+    title: "Hajj 2026 Packages from Vapi, Gujarat | Ministry Quota",
     description:
-      `Official Hajj registration, experienced muallims, VIP Mina tents, and medical support. Call ${siteConfig.contact.phoneDisplay}.`,
+      `Official Hajj registration in Vapi (396191), experienced muallims, VIP Mina tents, and medical support. Call ${siteConfig.contact.phoneDisplay}.`,
     creator: siteConfig.socials.twitter || "@alsafwatravels",
     site: siteConfig.socials.twitter || "@alsafwatravels",
     images: ["/images/hero-makkah.jpg"],

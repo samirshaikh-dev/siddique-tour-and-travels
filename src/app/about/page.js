@@ -7,16 +7,16 @@ import { getWhatsAppUrl } from "@/lib/utils";
 import { buildJsonLd, getPageSchemas, getFAQPageSchema } from "@/lib/seo";
 
 export const metadata = {
-  title: "About Us | Ministry-Approved Pilgrimage Operator",
+  title: `About Us | Ministry-Approved Pilgrimage Operator in Vapi (396191), Gujarat`,
   description:
-    `Discover ${siteConfig.name} — our founding philosophy, ministry credentials, and decades of trust serving Hajj, Umrah & Ziyarat pilgrims across India.`,
+    `Discover ${siteConfig.name} — ministry-approved pilgrimage operator headquartered in Vapi (396191), Gujarat. Decades of trust serving Hajj, Umrah & Ziyarat pilgrims across Valsad, Daman, Silvassa, and all India.`,
   keywords: [
-    `About ${siteConfig.name}`,
-    "Ministry approved Hajj operator",
-    "Trusted Umrah agency India",
+    `About ${siteConfig.name} Vapi`,
+    "Ministry approved Hajj operator Vapi Gujarat",
+    "Trusted Umrah agency Valsad 396191",
     `${siteConfig.name} founding story`,
-    "Pilgrimage operator with muallim support",
-    "Hajj Umrah company credentials",
+    "Pilgrimage operator with Gujarati muallim support",
+    "Hajj Umrah company credentials Vapi",
   ],
   alternates: {
     canonical: "/about",
@@ -30,9 +30,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/about`,
-    title: `About ${siteConfig.name} | Our Sacred Pilgrimage Ministry Credentials & Story`,
+    title: `About ${siteConfig.name} | Ministry Credentials in Vapi (396191) Gujarat`,
     description:
-      "Built on Sidq (honesty) and devotion. Learn about our pilgrimage credentials, 24/7 on-ground care, and our sacred service philosophy for Hajj, Umrah & Ziyarat.",
+      "Built on Sidq (honesty) and devotion. Learn about our pilgrimage credentials, Vapi head office, 24/7 on-ground care, and sacred service philosophy for Hajj & Umrah.",
     siteName: siteConfig.name,
     locale: "en_IN",
     images: [
@@ -40,16 +40,16 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `About ${siteConfig.name} — pilgrimage philosophy and credentials`,
+        alt: `About ${siteConfig.name} — Pilgrimage Philosophy in Vapi, Gujarat`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `About ${siteConfig.name} | Our Story & Credentials`,
+    title: `About ${siteConfig.name} | Vapi (396191) Gujarat`,
     description:
-      "Ministry-approved pilgrimage operator built on honesty and care for Hajj, Umrah & Ziyarat from India.",
+      "Ministry-approved pilgrimage operator built on honesty and care for Hajj, Umrah & Ziyarat in Vapi, Gujarat.",
     creator: siteConfig.socials.twitter || "@alsafwatravels",
     site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],

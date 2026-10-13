@@ -48,11 +48,20 @@ export const metadata = {
   category: "travel",
   classification: "Travel, Pilgrimage, Hajj, Umrah, Tourism",
   title: {
-    default: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages from India`,
+    default: `${siteConfig.name} | Hajj & Umrah Packages in Vapi (396191), Gujarat`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   abstract: siteConfig.tagline,
+  other: {
+    "geo.region": siteConfig.geo?.region || "IN-GJ",
+    "geo.placename": siteConfig.geo?.placename || "Vapi, Gujarat, India",
+    "geo.position": siteConfig.geo?.position || "20.3906;72.9167",
+    ICBM: siteConfig.geo?.icbm || "20.3906, 72.9167",
+    "DC.title": `${siteConfig.name} — Vapi 396191 Gujarat`,
+    "DC.coverage": "Vapi, Valsad District, South Gujarat, India",
+    "DC.subject": "Hajj Packages 2026, Umrah Packages Vapi, Ziyarat Tours Gujarat 396191",
+  },
   alternates: {
     canonical: "/",
     languages: Object.fromEntries(

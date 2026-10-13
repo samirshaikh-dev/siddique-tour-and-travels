@@ -313,6 +313,21 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Key Geographic Coverage Bar (Local GEO & AEO) */}
+          <div className="py-6 border-b border-white/10 text-xs text-gray-400">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-[var(--color-accent-soft)]" aria-hidden="true">📍</span>
+                <span className="font-medium text-gray-200">
+                  Local Presence in Vapi (PIN 396191), Valsad District:
+                </span>
+              </div>
+              <p className="text-gray-400 font-light text-[11px] sm:text-xs leading-relaxed">
+                Welcoming pilgrims from Vapi (396191) • Daman • Silvassa • Valsad • Pardi • Umbergaon • Bhilad • Navsari • Surat with door-to-door transit to Mumbai (BOM) &amp; Surat (STV) airports.
+              </p>
+            </div>
+          </div>
+
           {/* Bottom Copyright & Disclaimer */}
           <div className="pt-8 flex flex-col xl:flex-row items-center justify-between gap-4 text-xs text-gray-400">
             {/* Left: Copyright & Designer Credit */}

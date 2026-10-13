@@ -8,19 +8,22 @@ import { siteConfig } from "@/data/site-config";
 import { buildJsonLd, getPageSchemas, getTouristTripSchema, getFAQPageSchema } from "@/lib/seo";
 
 export const metadata = {
-  title: "Ziyarat Tours | Sacred Historical Sites in Makkah & Madinah",
+  title: "Ziyarat Tour Packages from Vapi Gujarat | Sacred Historical Sites",
   description:
-    "Guided educational and spiritual Ziyarat tours covering Cave Hira, Cave Thawr, Jabal al-Rahmah, Masjid Quba, Mount Uhud, Seven Mosques and sacred Islamic heritage sites in Makkah, Madinah and the surrounding Hejaz.",
+    "Guided spiritual and educational Ziyarat tours from Vapi (396191) & South Gujarat covering Cave Hira, Cave Thawr, Jabal al-Rahmah, Masjid Quba, Mount Uhud, and sacred Islamic heritage sites in Makkah, Madinah, and the Hejaz.",
   keywords: [
     "Ziyarat Tours Makkah Madinah",
+    "Ziyarat packages from Vapi Gujarat",
+    "Vapi 396191 ziyarat tour",
     "Islamic heritage sites tour Hejaz",
     "Cave Hira Cave Thawr Ziyarat",
     "Mount Uhud Seven Mosques Ziyarat",
     "Masjid Quba Masjid Qiblatayn tour",
     "Makkah Madinah sacred historical tour",
-    "Ziyarat tour package from India 2026",
-    "Guided historical Ziyarat scholar",
+    "Ziyarat tour package from South Gujarat 2026",
+    "Guided historical Ziyarat scholar Vapi",
     "Jabal al-Noor Jabal al-Rahmah visit",
+    "Valsad Daman Silvassa Ziyarat travel",
     `${siteConfig.name} Ziyarat package`,
   ],
   alternates: {
@@ -93,6 +96,11 @@ const ziyaratFAQs = [
     question: "Can I combine Ziyarat with my Umrah or Hajj?",
     answer:
       `Yes — every ${siteConfig.name} Umrah package includes complimentary guided Ziyarat in both Makkah and Madinah. Hajj packages likewise include post-Hajj Ziyarat before returning to India. We also offer stand-alone extended Ziyarat packages for pilgrims wishing to spend more time on the educational and historical aspects of Hejaz beyond the obligatory rituals.`,
+  },
+  {
+    question: "How do pilgrims from Vapi, Valsad, and South Gujarat join the Ziyarat tour?",
+    answer:
+      `Pilgrims can register directly at our Vapi East head office (396191) near Vapi Railway Station. We organize smooth transit to Chhatrapati Shivaji Maharaj International Airport (Mumbai / BOM) or Surat Airport (STV), arrange international flights with reputable airlines, and provide bilingual scholarly guidance throughout the entire trip.`,
   },
 ];
 

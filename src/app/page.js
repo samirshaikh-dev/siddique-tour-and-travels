@@ -8,24 +8,20 @@ import { getWhatsAppUrl } from "@/lib/utils";
 import PackageCard from "@/components/packages/PackageCard";
 import HeroParallax from "@/components/home/HeroParallax";
 import TrustBar from "@/components/home/TrustBar";
-import { buildJsonLd, getPageSchemas, getFAQPageSchema, getTouristTripSchema } from "@/lib/seo";
+import {
+  buildJsonLd,
+  getPageSchemas,
+  getFAQPageSchema,
+  getTouristTripSchema,
+  getTravelAgencySchema,
+  getWebSiteSchema,
+} from "@/lib/seo";
 
 export const metadata = {
-  title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages from India`,
+  title: `${siteConfig.name} | Hajj & Umrah Packages in Vapi (396191), Gujarat`,
   description:
-    `${siteConfig.name} — Ministry-approved Hajj, Umrah & Ziyarat packages from India. Courtyard Haram hotels, 24/7 muallim support, VIP transfers, and complete visa logistics with transparent pricing.`,
-  keywords: [
-    siteConfig.name,
-    "Hajj Packages 2026 from India",
-    "Umrah Packages from India",
-    "Ministry Approved Hajj Operator",
-    "Courtyard Hotels Near Haram Makkah",
-    "VIP Umrah Package Makkah Madinah",
-    "Guided Ziyarat Tours",
-    "Hajj Quota Registration India",
-    "5 Star Umrah Package India",
-    "Premium Islamic Pilgrimage Agency",
-  ],
+    `Authorised Hajj & Umrah pilgrimage operator in Vapi (396191), Gujarat. Verified 5-star & 3-star courtyard Haram hotels, Mumbai/Surat flight connections, complete visa facilitation, and 24/7 muallim support.`,
+  keywords: siteConfig.keywords,
   alternates: {
     canonical: "/",
     languages: Object.fromEntries(
@@ -38,9 +34,9 @@ export const metadata = {
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    title: `${siteConfig.name} | Sacred Hajj, Umrah & Ziyarat Journeys from India`,
+    title: `${siteConfig.name} | Hajj & Umrah Packages in Vapi (396191), Gujarat`,
     description:
-      "Ministry-approved pilgrimage operator. Verified Haram-courtyard hotels, 24/7 muallims, private VIP transfers, and full visa coordination for Hajj, Umrah & Ziyarat.",
+      "Ministry-approved pilgrimage operator in Vapi, Gujarat. Verified Haram-courtyard hotels, direct airport transfers, 24/7 muallims, and complete visa facilitation.",
     siteName: siteConfig.name,
     locale: "en_IN",
     alternateLocale: ["en_US", "ar_SA"],
@@ -49,16 +45,16 @@ export const metadata = {
         url: siteConfig.defaultOGImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — Premium Hajj Umrah Ziyarat Packages`,
+        alt: `${siteConfig.name} — Hajj & Umrah Packages Vapi 396191 Gujarat`,
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Hajj, Umrah & Ziyarat Packages`,
+    title: `${siteConfig.name} | Hajj & Umrah Operator Vapi (396191) Gujarat`,
     description:
-      `Trusted pilgrimage operator. Haram-courtyard hotels, muallim support, full visa logistics. Call ${siteConfig.contact.phoneDisplay}.`,
+      `Trusted pilgrimage operator in Vapi, Gujarat. Courtyard Haram hotels, flight transfers, 24/7 muallim support. Call ${siteConfig.contact.phoneDisplay}.`,
     creator: siteConfig.socials.twitter || "@alsafwatravels",
     site: siteConfig.socials.twitter || "@alsafwatravels",
     images: [siteConfig.defaultTwitterImage],
@@ -83,20 +79,22 @@ const homeBreadcrumb = [
 const homeFAQs = (siteConfig.faq || []).slice(0, 6);
 
 function HomeJsonLd() {
+  const agency = getTravelAgencySchema();
+  const website = getWebSiteSchema();
   const featuredTrips = packages
     .filter((p) => p.featured)
     .slice(0, 3)
     .map((pkg) => getTouristTripSchema(pkg));
   const pageSchemas = getPageSchemas({
     path: "/",
-    title: siteConfig.name,
+    title: `${siteConfig.name} — Vapi 396191 Gujarat`,
     description: metadata.description,
     keywords: metadata.keywords,
     breadcrumbItems: homeBreadcrumb,
     image: siteConfig.defaultOGImage,
+    faqs: homeFAQs,
   });
-  const faq = getFAQPageSchema(homeFAQs);
-  const jsonLd = buildJsonLd(...pageSchemas, faq, ...featuredTrips);
+  const jsonLd = buildJsonLd(agency, website, ...pageSchemas, ...featuredTrips);
   return (
     <script
       type="application/ld+json"
@@ -396,6 +394,70 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
+          5B. AEO & GEO LOCAL AUTHORITY SECTION (Vapi 396191 Gujarat Direct Answers)
+          ========================================================================= */}
+      <section
+        aria-label="Authorised Hajj and Umrah Operator in Vapi 396191 Gujarat"
+        className="py-20 bg-[var(--color-surface)] border-t border-[var(--color-sage)]/50"
+      >
+        <Container>
+          <div className="max-w-4xl mx-auto text-center space-y-4 mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] block">
+              Local Pilgrimage Authority • Vapi 396191, Gujarat
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">
+              Your Trusted Hajj & Umrah Operator in South Gujarat
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-text-muted)] font-light leading-relaxed max-w-3xl mx-auto">
+              <strong>{siteConfig.name}</strong> is a ministry-approved pilgrimage agency based in <strong>Vapi (PIN: 396191)</strong>, Valsad district, Gujarat. We serve pilgrims across Vapi, Daman, Silvassa, and South Gujarat with all-inclusive Hajj registration, year-round Umrah tours, direct road-to-flight transit via Mumbai (BOM) & Surat (STV) international airports, and scholar muallims fluent in Gujarati, Hindi, and Urdu.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 shadow-xs">
+              <span className="text-2xl mb-3 block" aria-hidden="true">📍</span>
+              <h3 className="font-semibold text-sm text-[var(--color-primary)] mb-1">
+                Head Office Vapi (396191)
+              </h3>
+              <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
+                Visit our office near Vapi Station East for personal family consultations, itinerary reviews, and passport submission.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 shadow-xs">
+              <span className="text-2xl mb-3 block" aria-hidden="true">✈️</span>
+              <h3 className="font-semibold text-sm text-[var(--color-primary)] mb-1">
+                Direct Airport Transit
+              </h3>
+              <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
+                Seamless AC coach transfers from Vapi to Mumbai International Airport (BOM, 160km) and Surat Airport (STV, 115km).
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 shadow-xs">
+              <span className="text-2xl mb-3 block" aria-hidden="true">📑</span>
+              <h3 className="font-semibold text-sm text-[var(--color-primary)] mb-1">
+                Fast-Track E-Visa & Bio
+              </h3>
+              <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
+                Complete Saudi e-visa handling, medical insurance, and biometric verification guidance for Gujarat passport holders.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 shadow-xs">
+              <span className="text-2xl mb-3 block" aria-hidden="true">🧕</span>
+              <h3 className="font-semibold text-sm text-[var(--color-primary)] mb-1">
+                Gujarati & Urdu Muallims
+              </h3>
+              <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
+                Experienced scholars deliver daily fiqh lectures and personal step-by-step guidance in Gujarati, Urdu, and Hindi.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
           6. EDITORIAL TESTIMONIAL / TRANQUILITY QUOTE
           ========================================================================= */}
       <section aria-label="Pilgrim testimonial" className="py-20 bg-[var(--color-primary)] text-white text-center relative overflow-hidden">
@@ -411,7 +473,7 @@ export default function HomePage() {
           </blockquote>
           <div className="w-12 h-0.5 bg-[var(--color-accent-soft)] mx-auto mb-4" />
           <cite className="not-italic text-sm font-medium tracking-wide text-emerald-100 uppercase block">
-            Dr. Tariq Khan & Family • Mumbai, India
+            Haji Iqbal Patel & Family • Vapi East (396191), Gujarat
           </cite>
         </Container>
       </section>
