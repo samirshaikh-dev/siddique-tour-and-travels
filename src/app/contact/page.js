@@ -100,30 +100,30 @@ export default function ContactPage() {
       />
 
       {/* 3-Channel Direct Contact Triad */}
-      <section aria-label="Direct Contact Channels" className="py-14 border-b border-[var(--color-sage)]/50 bg-[var(--color-surface)]">
+      <section aria-label="Direct Contact Channels" className="py-16 sm:py-20 border-b border-[var(--color-sage)]/60 bg-[var(--color-surface)]">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Channel 1: Phone */}
             <a
               href={`tel:${siteConfig.contact.phoneClean || siteConfig.contact.phone}`}
-              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-primary)] transition-all flex flex-col justify-between"
+              className="group p-7 sm:p-8 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 hover:border-[var(--color-primary)] transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_16px_36px_rgba(6,74,67,0.12)] hover:-translate-y-1 flex flex-col justify-between"
               aria-label={`Call office at ${siteConfig.contact.phoneDisplay}`}
             >
               <div>
-                <span className="w-10 h-10 rounded-xl bg-white border border-[var(--color-sage)] flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform" aria-hidden="true">
+                <span className="w-12 h-12 rounded-xl bg-white border border-[var(--color-sage)]/70 flex items-center justify-center text-2xl mb-5 group-hover:scale-105 transition-transform shadow-xs" aria-hidden="true">
                   📞
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-text-muted)] block mb-1">
                   Official Helpline
                 </span>
-                <h3 className="font-display text-lg font-bold text-[var(--color-primary)] group-hover:text-[var(--color-primary-hover)] transition-colors">
+                <h3 className="font-display text-xl font-bold text-[var(--color-primary)] group-hover:text-[var(--color-primary-hover)] transition-colors">
                   {siteConfig.contact.phoneDisplay}
                 </h3>
-                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light">
+                <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-1.5 font-light">
                   {siteConfig.contact.openingHours}
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[var(--color-primary)] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <span className="text-xs font-semibold text-[var(--color-primary)] mt-6 inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform">
                 Call Direct Now →
               </span>
             </a>
@@ -133,25 +133,25 @@ export default function ContactPage() {
               href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[#25D366] transition-all flex flex-col justify-between"
+              className="group p-7 sm:p-8 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 hover:border-[#25D366] transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_16px_36px_rgba(37,211,102,0.14)] hover:-translate-y-1 flex flex-col justify-between"
               aria-label="Direct WhatsApp pilgrimage concierge"
             >
               <div>
-                <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform relative" aria-hidden="true">
+                <div className="w-12 h-12 rounded-xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-2xl mb-5 group-hover:scale-105 transition-transform relative shadow-xs" aria-hidden="true">
                   <span className="animate-ping absolute inset-0 rounded-xl bg-[#25D366] opacity-20" />
                   💬
                 </div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-[#25D366] block mb-1">
+                <span className="text-[10px] uppercase font-bold tracking-wider text-[#1a8e45] block mb-1">
                   WhatsApp Concierge
                 </span>
-                <h3 className="font-display text-lg font-bold text-[var(--color-primary)]">
+                <h3 className="font-display text-xl font-bold text-[var(--color-primary)]">
                   Instant WhatsApp Chat
                 </h3>
-                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light">
+                <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-1.5 font-light">
                   Fast response & custom family quotations
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[#1ebe5d] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <span className="text-xs font-semibold text-[#1a8e45] mt-6 inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform">
                 Start WhatsApp Chat →
               </span>
             </a>
@@ -161,24 +161,24 @@ export default function ContactPage() {
               href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              className="group p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-accent)] transition-all flex flex-col justify-between"
+              className="group p-7 sm:p-8 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)] transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_16px_36px_rgba(184,135,45,0.12)] hover:-translate-y-1 flex flex-col justify-between"
               aria-label={`View ${siteConfig.contact.address.city} head office directions on Google Maps`}
             >
               <div>
-                <span className="w-10 h-10 rounded-xl bg-white border border-[var(--color-sage)] flex items-center justify-center text-xl mb-4 group-hover:scale-105 transition-transform" aria-hidden="true">
+                <span className="w-12 h-12 rounded-xl bg-white border border-[var(--color-sage)]/70 flex items-center justify-center text-2xl mb-5 group-hover:scale-105 transition-transform shadow-xs" aria-hidden="true">
                   📍
                 </span>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-accent)] block mb-1">
                   Head Office • {siteConfig.contact.address.city}
                 </span>
-                <h3 className="font-display text-base font-bold text-[var(--color-primary)]">
+                <h3 className="font-display text-xl font-bold text-[var(--color-primary)]">
                   {siteConfig.contact.address.city}, {siteConfig.contact.address.state}
                 </h3>
-                <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-1.5 font-light leading-relaxed">
                   {siteConfig.contact.address.street}
                 </p>
               </div>
-              <span className="text-xs font-semibold text-[var(--color-accent)] mt-4 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <span className="text-xs font-semibold text-[var(--color-accent)] mt-6 inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform">
                 Google Maps Navigation →
               </span>
             </a>
@@ -187,7 +187,7 @@ export default function ContactPage() {
       </section>
 
       {/* Main Consultation Form Section */}
-      <section aria-label="Send Written Inquiry" className="py-20 sm:py-28">
+      <section aria-label="Send Written Inquiry" className="py-20 sm:py-32">
         <Container className="max-w-4xl">
           <SectionHeading
             badge="Personalized Attention"

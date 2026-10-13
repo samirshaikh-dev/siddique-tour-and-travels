@@ -164,22 +164,22 @@ export default function UmrahPage() {
       />
 
       {/* The Courtyard Standard (Visual Value Pillars) */}
-      <section aria-label="The Courtyard Standard" className="py-12 border-b border-[var(--color-sage)]/50 bg-[var(--color-surface)]">
+      <section aria-label="The Courtyard Standard" className="py-14 border-b border-[var(--color-sage)]/60 bg-[var(--color-surface)]">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {courtyardPillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-accent)]/50 transition-colors"
+                className="flex items-start gap-4 p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-all shadow-xs"
               >
-                <span className="text-2xl p-2 rounded-xl bg-white shadow-xs border border-[var(--color-sage)]/40" aria-hidden="true">
+                <span className="text-2xl p-3 rounded-xl bg-white shadow-xs border border-[var(--color-sage)]/50 shrink-0" aria-hidden="true">
                   {pillar.icon}
                 </span>
                 <div>
-                  <h3 className="font-display text-base font-bold text-[var(--color-primary)]">
+                  <h3 className="font-display text-lg font-bold text-[var(--color-primary)]">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-[var(--color-text-muted)] mt-1 font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-1.5 font-light leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
@@ -190,7 +190,7 @@ export default function UmrahPage() {
       </section>
 
       {/* Curated Package Showcase */}
-      <section aria-label="Available Umrah packages" className="py-20 sm:py-28">
+      <section aria-label="Available Umrah packages" className="py-20 sm:py-32">
         <Container>
           <SectionHeading
             badge="Curated Collections"

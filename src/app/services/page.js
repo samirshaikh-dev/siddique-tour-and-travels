@@ -132,7 +132,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Bento Grid */}
-      <section aria-label="Available Pilgrimage Logistics Services" className="py-20 sm:py-28">
+      <section aria-label="Available Pilgrimage Logistics Services" className="py-20 sm:py-32">
         <Container>
           <SectionHeading
             badge="Comprehensive Capabilities"
@@ -147,7 +147,7 @@ export default function ServicesPage() {
               return (
                 <article
                   key={svc.id}
-                  className="p-7 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/50 transition-all shadow-sm hover:shadow-lg flex flex-col justify-between"
+                  className="p-7 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_16px_36px_rgba(6,74,67,0.1)] hover:-translate-y-1 flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 flex items-center justify-center text-2xl mb-5 shadow-xs" aria-hidden="true">

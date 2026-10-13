@@ -14,7 +14,7 @@ export default function Footer() {
     >
       {/* Top Accreditation & Trust Banner */}
       <div
-        className="border-b border-white/10 bg-black/25 py-3.5"
+        className="border-b border-white/10 bg-black/30 py-3.5"
         aria-label="Accreditation and trust banner"
       >
         <Container>
@@ -41,19 +41,24 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="pt-14 pb-36 md:pb-16">
+      <div className="pt-16 pb-36 md:pb-16">
         <Container>
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-14 border-b border-white/10">
             {/* Column 1: Brand & Commitment */}
             <div className="space-y-4" aria-label={`About ${siteConfig.name}`}>
               <div itemScope itemType="https://schema.org/Organization" className="space-y-2">
                 <link itemProp="url" href={siteConfig.url} />
                 <meta itemProp="name" content={siteConfig.name} />
                 <meta itemProp="logo" content={`${siteConfig.url}/logo.png`} />
-                <span className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                  {siteConfig.shortName || "Al-Safwa"}
-                </span>
-                <span className="block text-xs font-semibold tracking-widest uppercase text-[var(--color-accent-soft)] mt-0.5">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-900/60 border border-[var(--color-accent)]/40 flex items-center justify-center text-[var(--color-accent-soft)] font-serif text-sm font-bold shadow-xs">
+                    ✦
+                  </div>
+                  <span className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    {siteConfig.shortName || "Al-Safwa"}
+                  </span>
+                </div>
+                <span className="block text-[11px] font-semibold tracking-widest uppercase text-[var(--color-accent-soft)] mt-0.5">
                   Tours & Travels
                 </span>
               </div>
@@ -73,7 +78,7 @@ export default function Footer() {
                       href={siteConfig.socials.facebook}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]/60 transition-all"
+                      className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2]/60 transition-all shadow-xs"
                       aria-label={`${siteConfig.name} on Facebook`}
                       title="Facebook"
                     >
@@ -87,7 +92,7 @@ export default function Footer() {
                       href={siteConfig.socials.instagram}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-gradient-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:text-white hover:border-transparent transition-all"
+                      className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-gradient-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:text-white hover:border-transparent transition-all shadow-xs"
                       aria-label={`${siteConfig.name} on Instagram`}
                       title="Instagram"
                     >
@@ -101,7 +106,7 @@ export default function Footer() {
                       href={siteConfig.socials.youtube}
                       target="_blank"
                       rel="noopener noreferrer nofollow"
-                      className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000]/60 transition-all"
+                      className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#FF0000] hover:text-white hover:border-[#FF0000]/60 transition-all shadow-xs"
                       aria-label={`${siteConfig.name} on YouTube`}
                       title="YouTube"
                     >
@@ -115,7 +120,7 @@ export default function Footer() {
                       href={siteConfig.socials.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer sponsored nofollow"
-                      className="w-9 h-9 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366]/60 transition-all"
+                      className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-gray-300 hover:bg-[#25D366] hover:text-white hover:border-[#25D366]/60 transition-all shadow-xs"
                       aria-label={`${siteConfig.name} on WhatsApp`}
                       title="WhatsApp"
                     >
@@ -130,7 +135,7 @@ export default function Footer() {
 
             {/* Column 2: Sacred Journeys */}
             <div className="space-y-4" aria-label="Sacred pilgrimage journeys">
-              <h4 className="font-semibold text-white text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
+              <h4 className="font-semibold text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
                 Sacred Journeys
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm text-gray-300 font-light">
@@ -169,7 +174,7 @@ export default function Footer() {
 
             {/* Column 3: Pilgrim Care & Support */}
             <div className="space-y-4" aria-label="Pilgrim support and services">
-              <h4 className="font-semibold text-white text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
+              <h4 className="font-semibold text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
                 Pilgrim Care
               </h4>
               <ul className="space-y-2.5 text-xs sm:text-sm text-gray-300 font-light">
@@ -211,17 +216,17 @@ export default function Footer() {
               <div
                 itemScope
                 itemType="https://schema.org/LocalBusiness"
-                className="p-5 rounded-xl bg-white/5 border border-white/10 space-y-3.5"
+                className="p-5 sm:p-6 rounded-2xl bg-white/6 border border-white/12 space-y-4 shadow-md backdrop-blur-sm"
               >
                 <link itemProp="url" href={siteConfig.url} />
                 <link itemProp="image" href={`${siteConfig.url}/logo.png`} />
                 <meta itemProp="name" content={siteConfig.name} />
                 <meta itemProp="priceRange" content="$$" />
-                <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <h4 className="font-semibold text-white text-xs uppercase tracking-widest text-[var(--color-accent-soft)]">
                     Head Office • {siteConfig.contact.address.city}
                   </h4>
-                  <span className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30">
+                  <span className="text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded-full bg-emerald-950/70 border border-emerald-500/30">
                     Visit Us
                   </span>
                 </div>
@@ -251,7 +256,7 @@ export default function Footer() {
                   <meta itemProp="longitude" content={String(siteConfig.contact.address.geo.lng)} />
                 </div>
 
-                <div className="space-y-1.5 border-t border-white/10 pt-3 text-xs">
+                <div className="space-y-2 border-t border-white/10 pt-3.5 text-xs">
                   <div>
                     <span className="text-gray-400 block text-[10px]">Phone / Helpline:</span>
                     <a
@@ -282,7 +287,7 @@ export default function Footer() {
                   </div>
                 </div>
 
-                <div className="pt-1 border-t border-white/10">
+                <div className="pt-1.5 border-t border-white/10">
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                       `${siteConfig.name} ${siteConfig.contact.address.street} ${siteConfig.contact.address.city} ${siteConfig.contact.address.state}`

@@ -34,10 +34,10 @@ export default function PackageCard({ pkg }) {
 
   return (
     <motion.article
-      whileHover={{ y: -5, transition: { duration: 0.25, ease: "easeOut" } }}
+      whileHover={{ y: -6, transition: { duration: 0.28, ease: "easeOut" } }}
       itemScope
       itemType="https://schema.org/TouristTrip"
-      className="group flex flex-col bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)] transition-colors duration-300 shadow-sm hover:shadow-xl overflow-hidden"
+      className="group flex flex-col bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/80 transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_16px_40px_rgba(6,74,67,0.12)] overflow-hidden"
       aria-labelledby={`pkg-${pkg.id}-title`}
     >
       <meta itemProp="name" content={pkg.title} />
@@ -69,7 +69,7 @@ export default function PackageCard({ pkg }) {
       )}
 
       {pkg.image && (
-        <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-stone-900">
+        <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-stone-900">
           <Image
             src={pkg.image}
             alt={altText}
@@ -80,9 +80,11 @@ export default function PackageCard({ pkg }) {
             className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+          {/* Subtle multi-tone gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#062420]/95 via-black/35 to-black/15" />
 
-          <div className="absolute top-3 left-3 right-3 flex justify-between items-center">
+          {/* Top badges */}
+          <div className="absolute top-3.5 left-3.5 right-3.5 flex justify-between items-center z-10">
             <Badge
               variant={
                 pkg.category === "Hajj"
@@ -91,26 +93,27 @@ export default function PackageCard({ pkg }) {
                   ? "emerald"
                   : "sage"
               }
-              className="backdrop-blur-md shadow-md text-xs px-2.5 py-0.5 font-semibold"
+              className="backdrop-blur-md shadow-md text-xs px-3 py-1 font-semibold"
             >
               {pkg.category}
             </Badge>
 
-            <span className="text-[11px] font-semibold text-white bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
+            <span className="text-[11px] font-semibold text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow-xs">
               {pkg.duration}
             </span>
           </div>
 
-          <div className="absolute bottom-3 left-3 right-3 text-white">
+          {/* Bottom title block */}
+          <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white z-10">
             {pkg.season && (
-              <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--color-accent-soft)] block mb-0.5">
-                {pkg.season}
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-accent-soft)] block mb-1">
+                ✦ {pkg.season}
               </span>
             )}
             <h3
               id={`pkg-${pkg.id}-title`}
               itemProp="name"
-              className="font-display text-lg sm:text-xl font-bold leading-snug drop-shadow-sm line-clamp-2"
+              className="font-display text-xl sm:text-2xl font-bold leading-snug drop-shadow-md line-clamp-2"
             >
               <Link
                 href={`${categoryPath}${slugAnchor}`}
@@ -124,36 +127,58 @@ export default function PackageCard({ pkg }) {
         </div>
       )}
 
-      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between gap-3">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between gap-4">
         {pkg.tagline && (
-          <p className="text-xs text-[var(--color-text-muted)] line-clamp-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light line-clamp-2 leading-relaxed">
             {pkg.tagline}
           </p>
         )}
 
-        <div className="pt-3 border-t border-[var(--color-sage)]/50 space-y-3">
+        {/* Hotel proximity callouts if available */}
+        {(pkg.makkahHotel || pkg.madinahHotel) && (
+          <div className="p-3 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 text-xs space-y-1.5">
+            {pkg.makkahHotel && (
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-[var(--color-text-muted)]">Makkah:</span>
+                <span className="font-medium text-[var(--color-primary)] text-right truncate max-w-[170px]">
+                  {pkg.makkahHotel.name} ({pkg.makkahHotel.distance})
+                </span>
+              </div>
+            )}
+            {pkg.madinahHotel && (
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-[var(--color-text-muted)]">Madinah:</span>
+                <span className="font-medium text-[var(--color-primary)] text-right truncate max-w-[170px]">
+                  {pkg.madinahHotel.name} ({pkg.madinahHotel.distance})
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="pt-3 border-t border-[var(--color-sage)]/60 space-y-3.5">
           <div className="flex items-baseline justify-between gap-2">
             <div>
-              <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider block">
+              <span className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider block font-medium">
                 Starting from
               </span>
-              <span className="text-xl font-bold text-[var(--color-primary)] font-display">
+              <span className="text-2xl font-bold text-[var(--color-primary)] font-display tracking-tight">
                 {pkg.priceStarting ? formatCurrency(pkg.priceStarting) : "Request Pricing"}
               </span>
             </div>
             {pkg.priceNote && (
-              <span className="text-[10px] text-[var(--color-text-muted)] text-right max-w-[120px] line-clamp-1">
+              <span className="text-[11px] text-[var(--color-text-muted)] text-right max-w-[130px] line-clamp-1 font-light">
                 {pkg.priceNote}
               </span>
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
             <Button
               href={whatsappUrl}
               variant="whatsapp"
               size="sm"
-              className="text-xs py-2 min-h-[38px] flex items-center justify-center font-medium"
+              className="text-xs py-2.5 min-h-[42px] flex items-center justify-center font-semibold"
               aria-label={`Inquire about ${pkg.title} on WhatsApp`}
             >
               WhatsApp
@@ -162,7 +187,7 @@ export default function PackageCard({ pkg }) {
               href={`${categoryPath}${slugAnchor || ""}`}
               variant="primary"
               size="sm"
-              className="text-xs py-2 min-h-[38px] flex items-center justify-center font-medium"
+              className="text-xs py-2.5 min-h-[42px] flex items-center justify-center font-medium"
               aria-label={`View full itinerary for ${pkg.title}`}
             >
               View Itinerary

@@ -47,6 +47,7 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Accessible focus ring across all interactive controls */
@@ -60,18 +61,66 @@ body {
   font-family: var(--font-serif);
 }
 
-/* Subtle Islamic Geometric Pattern Overlay */
-.islamic-pattern-subtle {
-  background-image: radial-gradient(#064a43 0.75px, transparent 0.75px), radial-gradient(#064a43 0.75px, #faf7f0 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
-  opacity: 0.05;
-}
-
 /* Luxury selection color */
 ::selection {
   background-color: var(--color-accent);
   color: #ffffff;
 }
 
+/* Luminous Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(216, 188, 120, 0.28);
+}
 
+.glass-panel-dark {
+  background: rgba(12, 30, 48, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.glass-panel-emerald {
+  background: rgba(6, 74, 67, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(216, 188, 120, 0.35);
+}
+
+/* Tasteful atmospheric lighting & glows */
+.glow-gold-subtle {
+  box-shadow: 0 8px 32px -8px rgba(184, 135, 45, 0.22);
+}
+
+.glow-emerald-subtle {
+  box-shadow: 0 12px 36px -10px rgba(6, 74, 67, 0.24);
+}
+
+.glow-ambient-card {
+  box-shadow: 0 4px 24px -4px rgba(23, 33, 31, 0.06), 0 1px 3px 0 rgba(23, 33, 31, 0.04);
+}
+
+.glow-ambient-hover {
+  box-shadow: 0 20px 40px -12px rgba(6, 74, 67, 0.16), 0 2px 8px -2px rgba(184, 135, 45, 0.1);
+}
+
+/* Gentle atmospheric gradient accents */
+.ambient-halo-gold {
+  background: radial-gradient(circle at 50% 50%, rgba(216, 188, 120, 0.15) 0%, transparent 70%);
+}
+
+.ambient-halo-emerald {
+  background: radial-gradient(circle at 50% 50%, rgba(6, 74, 67, 0.12) 0%, transparent 70%);
+}
+
+/* Shimmer Accent (Subtle, non-distracting) */
+.gilded-border {
+  border-image: linear-gradient(to right, rgba(216, 188, 120, 0.2), rgba(184, 135, 45, 0.6), rgba(216, 188, 120, 0.2)) 1;
+}
+
+/* Smooth transitions */
+* {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}

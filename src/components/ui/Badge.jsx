@@ -8,19 +8,21 @@ export default function Badge({
 }) {
   const variants = {
     emerald:
-      "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border border-[var(--color-primary)]/20",
+      "bg-emerald-600/12 text-[#064A43] border border-emerald-600/25",
     gold:
-      "bg-[var(--color-accent)]/15 text-[#8c631a] border border-[var(--color-accent)]/30",
+      "bg-amber-500/15 text-[#8c631a] border border-amber-500/30",
     sage:
-      "bg-[var(--color-sage)] text-[var(--color-text)] border border-[var(--color-sage)]",
+      "bg-[var(--color-sage)]/70 text-[var(--color-text)] border border-[var(--color-sage)]",
     navy:
-      "bg-[var(--color-secondary-dark)] text-white",
+      "bg-[var(--color-secondary-dark)] text-white border border-white/10",
+    glass:
+      "bg-black/40 backdrop-blur-md text-white border border-white/20",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider",
+        "inline-flex items-center px-3 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider shadow-2xs",
         variants[variant] || variants.emerald,
         className
       )}

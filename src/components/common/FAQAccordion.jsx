@@ -15,17 +15,20 @@ export default function FaqAccordion({ items = [], title = "Frequently Asked Que
   return (
     <section aria-label={title} className="w-full max-w-3xl mx-auto">
       {title && (
-        <div className="text-center mb-10">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2 block">
-            Clarity & Guidance
-          </span>
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 text-[var(--color-accent)] text-[11px] font-semibold uppercase tracking-widest mb-3">
+            <span>✦</span>
+            <span>Clarity & Guidance</span>
+            <span>✦</span>
+          </div>
           <h2 className="font-display text-2xl sm:text-4xl font-bold text-[var(--color-primary)]">
             {title}
           </h2>
+          <div className="w-12 h-0.5 bg-[var(--color-accent)] mx-auto mt-4 rounded-full" />
         </div>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-3.5">
         {items.map((item, idx) => {
           const isOpen = openIndex === idx;
           const contentId = `faq-content-${idx}`;
@@ -34,7 +37,7 @@ export default function FaqAccordion({ items = [], title = "Frequently Asked Que
           return (
             <div
               key={idx}
-              className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-colors overflow-hidden shadow-sm"
+              className="bg-[var(--color-surface)] rounded-2xl border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-all duration-300 overflow-hidden shadow-[0_2px_12px_rgba(23,33,31,0.03)]"
             >
               <button
                 id={headerId}
@@ -66,7 +69,7 @@ export default function FaqAccordion({ items = [], title = "Frequently Asked Que
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed border-t border-[var(--color-sage)]/30 pt-4">
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed border-t border-[var(--color-sage)]/40 pt-4">
                       {item.answer}
                     </div>
                   </motion.div>

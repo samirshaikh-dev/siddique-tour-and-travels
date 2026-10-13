@@ -22,7 +22,7 @@ export default function PageHero({
 
   useGSAP(
     () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (!imageWrapperRef.current) return;
 
       gsap.to(imageWrapperRef.current, {
@@ -43,7 +43,7 @@ export default function PageHero({
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[46vh] sm:min-h-[52vh] flex items-center justify-center text-white overflow-hidden"
+      className="relative min-h-[48vh] sm:min-h-[54vh] flex items-center justify-center text-white overflow-hidden"
       aria-label={title}
     >
       {/* Background Image with GSAP ScrollTrigger Parallax */}
@@ -58,9 +58,10 @@ export default function PageHero({
             sizes="100vw"
           />
         </div>
-        {/* Cinematic Multi-tier Gradient for AAA text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#064A43] via-black/55 to-black/75" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/30 to-black/80" />
+        {/* Cinematic Multi-tier Gradient for AAA text contrast & serene lighting */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#062c26] via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(216,188,120,0.16)_0%,transparent_65%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/25 to-black/75" />
       </div>
 
       <Container className="relative z-10 py-16 sm:py-24 text-center max-w-3xl mx-auto flex flex-col items-center">
@@ -71,7 +72,7 @@ export default function PageHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             aria-label="Breadcrumb navigation"
-            className="mb-6 flex items-center gap-2 text-xs text-white/70 tracking-wide font-light"
+            className="mb-6 inline-flex items-center gap-2 text-xs text-white/80 tracking-wide font-light bg-black/30 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 shadow-xs"
           >
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -99,11 +100,11 @@ export default function PageHero({
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[var(--color-accent-soft)] text-[11px] font-semibold tracking-widest uppercase mb-6 shadow-md"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-[var(--color-accent-soft)]/40 text-[var(--color-accent-soft)] text-[11px] font-semibold tracking-widest uppercase mb-6 shadow-sm"
           >
-            <span>✦</span>
+            <span className="text-[9px]">✦</span>
             <span>{badge}</span>
-            <span>✦</span>
+            <span className="text-[9px]">✦</span>
           </motion.div>
         )}
 
@@ -112,11 +113,11 @@ export default function PageHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-5 drop-shadow-md"
+          className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
         >
           {title}{" "}
           {titleHighlight && (
-            <span className="italic font-normal text-[var(--color-accent-soft)] block sm:inline">
+            <span className="italic font-normal text-[var(--color-accent-soft)] block sm:inline drop-shadow-[0_2px_12px_rgba(216,188,120,0.3)]">
               {titleHighlight}
             </span>
           )}
@@ -128,7 +129,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm sm:text-lg text-emerald-50/90 max-w-xl font-light leading-relaxed drop-shadow"
+            className="text-sm sm:text-lg text-emerald-50/95 max-w-xl font-light leading-relaxed drop-shadow"
           >
             {subtitle}
           </motion.p>

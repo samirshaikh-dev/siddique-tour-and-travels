@@ -187,42 +187,45 @@ export default function ZiyaratPage() {
       />
 
       {/* Visual Heritage Roadmap (6 Sacred Sites) */}
-      <section aria-label="Sacred Ziyarat Sites Roadmap" className="py-20 border-b border-[var(--color-sage)]/50 bg-[var(--color-surface)]">
+      <section aria-label="Sacred Ziyarat Sites Roadmap" className="py-20 sm:py-28 border-b border-[var(--color-sage)]/60 bg-[var(--color-surface)]">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2 block">
-              Sacred Sanctuaries
-            </span>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 text-[var(--color-accent)] text-[11px] font-semibold uppercase tracking-widest mb-3">
+              <span>✦</span>
+              <span>Sacred Sanctuaries</span>
+              <span>✦</span>
+            </div>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">
               Sacred Sites Visited
             </h2>
             <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-3 font-light leading-relaxed">
               Every site visited is accompanied by authentic scholarly narrations in Urdu, Hindi, and English with dedicated time for contemplation and du&apos;a.
             </p>
+            <div className="w-12 h-0.5 bg-[var(--color-accent)] mx-auto mt-5 rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {sacredSites.map((site, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/60 hover:border-[var(--color-accent)]/50 transition-colors flex flex-col justify-between"
+                className="p-6 sm:p-7 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-all shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-white text-[var(--color-primary)] border border-[var(--color-sage)]">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-white text-[var(--color-primary)] border border-[var(--color-sage)] shadow-2xs">
                       {site.city}
                     </span>
-                    <span className="text-xs font-serif font-bold text-[var(--color-accent)]">
+                    <span className="text-sm font-serif font-bold text-[var(--color-accent)]">
                       0{idx + 1}
                     </span>
                   </div>
-                  <h3 className="font-display text-lg font-bold text-[var(--color-primary)] mb-1">
+                  <h3 className="font-display text-xl font-bold text-[var(--color-primary)] mb-1">
                     {site.name}
                   </h3>
-                  <span className="text-[11px] text-[var(--color-accent)] font-medium block mb-2">
+                  <span className="text-xs text-[var(--color-accent)] font-medium block mb-2.5">
                     {site.subtitle}
                   </span>
-                  <p className="text-xs text-[var(--color-text-muted)] font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
                     {site.desc}
                   </p>
                 </div>
@@ -233,7 +236,7 @@ export default function ZiyaratPage() {
       </section>
 
       {/* Curated Ziyarat Packages */}
-      <section aria-label="Curated Ziyarat Packages" className="py-20 sm:py-28">
+      <section aria-label="Curated Ziyarat Packages" className="py-20 sm:py-32">
         <Container>
           <SectionHeading
             badge="Heritage Itineraries"

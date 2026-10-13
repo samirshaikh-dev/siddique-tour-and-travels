@@ -136,15 +136,15 @@ export default function AboutPage() {
       />
 
       {/* Credibility Stats Strip */}
-      <section aria-label="Key Agency Milestones" className="py-14 border-b border-[var(--color-sage)]/50 bg-[var(--color-surface)]">
+      <section aria-label="Key Agency Milestones" className="py-14 border-b border-[var(--color-sage)]/60 bg-[var(--color-surface)]">
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {stats.map((stat, idx) => (
-              <div key={idx} className="p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/50">
-                <span className="font-display text-2xl sm:text-4xl font-bold text-[var(--color-primary)] block">
+              <div key={idx} className="p-5 sm:p-6 rounded-2xl bg-[var(--color-background)] border border-[var(--color-sage)]/70 shadow-xs">
+                <span className="font-display text-3xl sm:text-4xl font-bold text-[var(--color-primary)] block">
                   {stat.value}
                 </span>
-                <span className="text-xs text-[var(--color-text-muted)] mt-1 block font-medium">
+                <span className="text-xs sm:text-sm text-[var(--color-text-muted)] mt-1.5 block font-medium">
                   {stat.label}
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
       </section>
 
       {/* Brand Story & Philosophy */}
-      <section aria-label="Our Story and Mission" className="py-20 sm:py-28">
+      <section aria-label="Our Story and Mission" className="py-20 sm:py-32">
         <Container className="max-w-4xl">
           <SectionHeading
             badge="Foundational Ethics"
@@ -167,37 +167,41 @@ export default function AboutPage() {
             {principles.map((item, idx) => (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/50 transition-colors shadow-xs"
+                className="p-7 sm:p-8 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-sage)]/70 hover:border-[var(--color-accent)]/60 transition-all duration-300 shadow-[0_4px_20px_rgba(23,33,31,0.04)] hover:shadow-[0_12px_32px_rgba(6,74,67,0.1)] flex flex-col justify-between"
               >
-                <span className="text-2xl p-2.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/40 inline-block mb-4" aria-hidden="true">
-                  {item.icon}
-                </span>
-                <h3 className="font-display text-lg font-bold text-[var(--color-primary)] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
-                  {item.desc}
-                </p>
+                <div>
+                  <span className="text-2xl p-3 rounded-xl bg-[var(--color-background)] border border-[var(--color-sage)]/50 inline-block mb-4 shadow-xs" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <h3 className="font-display text-xl font-bold text-[var(--color-primary)] mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Head Office Invitation Card */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-accent)]/40 shadow-md text-center max-w-2xl mx-auto space-y-5">
-            <span className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-accent)] block">
-              Personal Relationship
-            </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-primary)]">
+          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)] border border-[var(--color-accent)]/50 shadow-[0_16px_40px_rgba(184,135,45,0.12)] text-center max-w-2xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/30 text-[var(--color-accent)] text-[11px] font-semibold uppercase tracking-widest">
+              <span>✦</span>
+              <span>Personal Relationship</span>
+              <span>✦</span>
+            </div>
+            <h3 className="font-display text-2xl sm:text-4xl font-bold text-[var(--color-primary)]">
               Meet Us at Our Head Office
             </h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed">
+            <p className="text-xs sm:text-sm text-[var(--color-text-muted)] font-light leading-relaxed max-w-lg mx-auto">
               We welcome families to sit down with our senior directors at {siteConfig.contact.address.street}, {siteConfig.contact.address.city} for detailed itinerary consultations and visa verification.
             </p>
-            <div className="pt-3 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href={whatsappUrl} variant="whatsapp">
+            <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href={whatsappUrl} variant="whatsapp" size="md">
                 Instant WhatsApp Concierge
               </Button>
-              <Button href="/contact" variant="primary">
+              <Button href="/contact" variant="primary" size="md">
                 View Office Directions
               </Button>
             </div>

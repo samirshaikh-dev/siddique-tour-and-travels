@@ -13,7 +13,7 @@ export default function StickyContactBar() {
     const previous = scrollY.getPrevious() ?? 0;
     const diff = latest - previous;
 
-    // Only hide if scrolling down past initial 80px buffer
+    // Only hide if scrolling down past initial 100px buffer
     if (latest > 100 && diff > 8) {
       setIsHidden(true);
     } else if (diff < -6) {
@@ -47,7 +47,7 @@ export default function StickyContactBar() {
     >
       {/* Floating Island / Glassmorphic Concierge Dock */}
       <div
-        className="mx-auto bg-[#0a1b2b]/95 backdrop-blur-xl border border-white/20 p-2 rounded-2xl shadow-[0_12px_36px_rgba(0,0,0,0.55)] pointer-events-auto"
+        className="mx-auto bg-[#0a1b2b]/95 backdrop-blur-2xl border border-white/25 p-2 rounded-2xl shadow-[0_16px_40px_rgba(0,0,0,0.6)] pointer-events-auto"
         style={{ maxWidth: "440px" }}
       >
         <div className="grid grid-cols-2 gap-2">
@@ -55,8 +55,8 @@ export default function StickyContactBar() {
           <motion.a
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.96 }}
-            href={`tel:${siteConfig.contact.phone}`}
-            className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-colors min-h-[44px]"
+            href={`tel:${siteConfig.contact.phoneClean || siteConfig.contact.phone}`}
+            className="flex items-center justify-center gap-2.5 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white transition-colors min-h-[48px]"
             aria-label={`Call ${siteConfig.contact.phoneDisplay}`}
           >
             <div className="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30">
@@ -79,7 +79,7 @@ export default function StickyContactBar() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1ebe5d] text-white transition-shadow shadow-md min-h-[44px] relative overflow-hidden"
+            className="flex items-center justify-center gap-2.5 py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1ebe5d] text-white transition-all shadow-[0_4px_16px_rgba(37,211,102,0.35)] min-h-[48px] relative overflow-hidden"
             aria-label="Chat on WhatsApp"
           >
             <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center shrink-0 relative">
